@@ -289,12 +289,6 @@ const Services = () => {
                     </div>
                   </div>
 
-                  {index !== processSteps.length - 1 && (
-                    <div
-                      className="sm:hidden absolute top-16 left-1/2 -translate-x-1/2 w-[2px] h-full -z-10"
-                      style={{ background: 'var(--border-color)' }}
-                    ></div>
-                  )}
 
                   <div
                     className="p-4 sm:p-6 rounded-xl sm:rounded-2xl border w-full transition-all duration-300 group-hover:-translate-y-2"

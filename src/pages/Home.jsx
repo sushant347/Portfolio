@@ -218,27 +218,45 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative h-screen overflow-hidden"
+      className="relative overflow-hidden lg:h-screen"
       style={{ background: 'var(--bg-primary)' }}
     >
-      {/* ── BACKGROUND AMBIENCE — matches Services & Gallery ── */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* ── BACKGROUND AMBIENCE ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20"
           style={{ background: 'var(--accent-color)' }}
         />
         <div
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[120px] opacity-15"
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-15"
           style={{ background: 'var(--text-primary)' }}
         />
       </div>
 
       {/* ── MAIN CONTAINER ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 h-full">
-        <div className="flex flex-col lg:flex-row h-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 lg:h-full">
+        <div className="flex flex-col lg:flex-row lg:h-full">
 
-          {/* ══ LEFT: TEXT ══ */}
-          <div className="order-2 lg:order-1 w-full lg:w-[56%] flex flex-col justify-center items-center lg:items-start text-center lg:text-left py-16 lg:py-0 gap-6 overflow-y-auto lg:overflow-visible">
+          {/* ══ RIGHT: PHOTO — order-1 on mobile so it appears at top ══ */}
+          <div
+            data-aos="fade-left"
+            data-aos-delay="200"
+            className="order-1 lg:order-2 w-full lg:w-[44%] flex items-end justify-center lg:justify-end pt-10 lg:pt-0 lg:h-full relative"
+          >
+            <img
+              src={mePhoto}
+              alt="Sushant Gautam"
+              className="relative z-10 w-auto max-w-[210px] sm:max-w-[300px] lg:max-w-none lg:h-[98%] object-contain object-bottom transition-transform duration-500 hover:scale-[1.02] select-none lg:-translate-y-8"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
+              }}
+              draggable={false}
+            />
+          </div>
+
+          {/* ══ LEFT: TEXT — order-2 on mobile so it appears below photo ══ */}
+          <div className="order-2 lg:order-1 w-full lg:w-[56%] flex flex-col justify-center items-center lg:items-start text-center lg:text-left pt-3 pb-12 lg:py-0 gap-5 lg:gap-6">
 
             {/* Badge */}
             <div
@@ -258,13 +276,13 @@ const Home = () => {
             {/* Name */}
             <div data-aos="fade-right" data-aos-delay="150">
               <h1
-                className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05]"
+                className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05]"
                 style={{ color: 'var(--text-primary)' }}
               >
                 Sushant
               </h1>
               <h1
-                className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] text-transparent bg-clip-text"
+                className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] text-transparent bg-clip-text"
                 style={{ backgroundImage: 'linear-gradient(to right, var(--accent-color), var(--accent-hover))' }}
               >
                 Gautam
@@ -275,7 +293,7 @@ const Home = () => {
             <div
               data-aos="fade-left"
               data-aos-delay="250"
-              className="flex items-center justify-center lg:justify-start gap-2 text-xl md:text-2xl"
+              className="flex items-center justify-center lg:justify-start gap-2 text-lg sm:text-xl md:text-2xl"
             >
               <span style={{ color: 'var(--text-secondary)' }}>I&apos;m a</span>
               <span className="font-bold" style={{ color: 'var(--text-primary)' }}>
@@ -291,11 +309,11 @@ const Home = () => {
             <p
               data-aos="fade-left"
               data-aos-delay="350"
-              className="text-base md:text-[1.05rem] leading-[1.9] max-w-xl mx-auto lg:mx-0"
+              className="text-sm sm:text-base md:text-[1.05rem] leading-[1.9] max-w-xl mx-auto lg:mx-0"
               style={{ color: 'var(--text-secondary)', textAlign: 'justify' }}
             >
               I craft exceptional digital experiences through innovative web development and elegant design.
-              Specialized in React,Django, Node.js, and modern UI technologies  turning ideas into fast,
+              Specialized in React, Django, Node.js, and modern UI technologies — turning ideas into fast,
               accessible, and visually polished products.
             </p>
 
@@ -303,22 +321,22 @@ const Home = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="450"
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center lg:justify-start"
             >
               <button
                 onClick={(e) => handleNavClick(e, '#contact')}
-                className="flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95 w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 px-7 py-3 sm:px-8 sm:py-3.5 rounded-full font-bold text-white transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95 w-full sm:w-auto"
                 style={{ background: 'var(--accent-color)' }}
               >
-                Contact Me <ExternalLink size={17} />
+                Contact Me <ExternalLink size={16} />
               </button>
               <button
                 type="button"
                 onClick={handleDownloadCV}
-                className="flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold transition-all duration-300 hover:bg-[var(--bg-secondary)] hover:scale-105 active:scale-95 w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 px-7 py-3 sm:px-8 sm:py-3.5 rounded-full font-bold transition-all duration-300 hover:bg-[var(--bg-secondary)] hover:scale-105 active:scale-95 w-full sm:w-auto"
                 style={{ border: '2px solid var(--border-color)', color: 'var(--text-primary)' }}
               >
-                Download CV <Download size={17} />
+                Download CV <Download size={16} />
               </button>
             </div>
 
@@ -348,24 +366,6 @@ const Home = () => {
               })}
             </div>
 
-          </div>
-
-          {/* ══ RIGHT: PHOTO ══ */}
-          <div
-            data-aos="fade-left"
-            data-aos-delay="200"
-            className="order-1 lg:order-2 w-full lg:w-[44%] flex items-end justify-center lg:justify-end pt-12 lg:pt-0 lg:h-full relative overflow-hidden"
-          >
-            <img
-              src={mePhoto}
-              alt="Sushant Gautam"
-              className="relative z-10 w-auto max-w-[270px] sm:max-w-[340px] lg:max-w-none lg:h-[98%] object-contain object-bottom transition-transform duration-500 hover:scale-[1.02] select-none lg:-translate-y-8"
-              style={{
-                maskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
-              }}
-              draggable={false}
-            />
           </div>
 
         </div>

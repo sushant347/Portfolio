@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, ArrowRight, Share2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, ArrowRight } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

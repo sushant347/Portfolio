@@ -108,8 +108,6 @@ const Navbar = () => {
                 className={`
                   relative px-4 py-2 rounded-md text-sm font-medium transition-all
                   ${isActive(link.path) ? 'font-semibold' : ''}
-                  
-                  // The Sliding Underline Classes
                   after:content-['']
                   after:absolute
                   after:left-0
@@ -179,32 +177,32 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div 
-          className="md:hidden"
-          style={{
-            background: 'var(--bg-primary)',
-            borderTop: '1px solid var(--border-color)'
-          }}
-        >
-          <div className="px-6 py-4 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.path}
-                href={link.path}
-                onClick={(e) => handleNavClick(e, link.path)}
-                className="block px-4 py-3 rounded-lg text-sm font-medium transition-all"
-                style={{
-                  color: isActive(link.path) ? 'var(--text-primary)' : 'var(--text-secondary)',
-                  background: isActive(link.path) ? 'var(--card-bg)' : 'transparent'
-                }}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+        style={{
+          background: 'var(--bg-primary)',
+          borderTop: isMenuOpen ? '1px solid var(--border-color)' : 'none'
+        }}
+      >
+        <div className="px-6 py-4 space-y-1">
+          {navLinks.map((link) => (
+            <a
+              key={link.path}
+              href={link.path}
+              onClick={(e) => handleNavClick(e, link.path)}
+              className="block px-4 py-3 rounded-lg text-sm font-medium transition-all"
+              style={{
+                color: isActive(link.path) ? 'var(--text-primary)' : 'var(--text-secondary)',
+                background: isActive(link.path) ? 'var(--card-bg)' : 'transparent'
+              }}
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };

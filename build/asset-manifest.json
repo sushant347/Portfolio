@@ -1,17 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.da3cc8be.css",
-    "main.js": "/static/js/main.4dc015fb.js",
-    "static/js/453.15a626a8.chunk.js": "/static/js/453.15a626a8.chunk.js",
-    "static/media/mee.png": "/static/media/mee.2f7544e84a9c5065127d.png",
+    "main.css": "/static/css/main.51e8f72d.css",
+    "main.js": "/static/js/main.8f02cc9c.js",
+    "static/js/239.2abdca91.chunk.js": "/static/js/239.2abdca91.chunk.js",
+    "static/js/977.0176ef9d.chunk.js": "/static/js/977.0176ef9d.chunk.js",
+    "static/js/455.d76d52f8.chunk.js": "/static/js/455.d76d52f8.chunk.js",
+    "static/js/453.38208c36.chunk.js": "/static/js/453.38208c36.chunk.js",
+    "static/media/space Invader.png": "/static/media/space Invader.16633854b747d82cfae5.png",
+    "static/media/snake game.png": "/static/media/snake game.5d0a41cf3bbbd3435b92.png",
+    "static/media/mee.png": "/static/media/mee.039d4f19bfc7960b6859.png",
+    "static/media/Electronest.png": "/static/media/Electronest.6061a5ef90094bdd81ca.png",
+    "static/media/Urbanwave.png": "/static/media/Urbanwave.d3888a5a02d0f7226396.png",
+    "static/media/me.png": "/static/media/me.d7e359d4a8fe9616048c.png",
+    "static/media/ai-car-banner.jpg": "/static/media/ai-car-banner.933047e874c2b37eb77c.jpg",
     "static/media/logo.png": "/static/media/logo.3ee24660e0322977adc3.png",
     "index.html": "/index.html",
-    "main.da3cc8be.css.map": "/static/css/main.da3cc8be.css.map",
-    "main.4dc015fb.js.map": "/static/js/main.4dc015fb.js.map",
-    "453.15a626a8.chunk.js.map": "/static/js/453.15a626a8.chunk.js.map"
+    "main.51e8f72d.css.map": "/static/css/main.51e8f72d.css.map",
+    "main.8f02cc9c.js.map": "/static/js/main.8f02cc9c.js.map",
+    "239.2abdca91.chunk.js.map": "/static/js/239.2abdca91.chunk.js.map",
+    "977.0176ef9d.chunk.js.map": "/static/js/977.0176ef9d.chunk.js.map",
+    "455.d76d52f8.chunk.js.map": "/static/js/455.d76d52f8.chunk.js.map",
+    "453.38208c36.chunk.js.map": "/static/js/453.38208c36.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.da3cc8be.css",
-    "static/js/main.4dc015fb.js"
+    "static/css/main.51e8f72d.css",
+    "static/js/main.8f02cc9c.js"
   ]
 }
