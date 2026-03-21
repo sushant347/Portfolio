@@ -295,7 +295,7 @@ const Home = () => {
               style={{ color: 'var(--text-secondary)', textAlign: 'justify' }}
             >
               I craft exceptional digital experiences through innovative web development and elegant design.
-              Specialized in React, Node.js, and modern UI technologies — turning ideas into fast,
+              Specialized in React,Django, Node.js, and modern UI technologies  turning ideas into fast,
               accessible, and visually polished products.
             </p>
 

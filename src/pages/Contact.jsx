@@ -46,8 +46,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'sushantgautam98677@gmail.com',
-      link: 'mailto:sushantgautam98677@gmail.com',
+      content: 'sushant98677@gmail.com',
+      link: 'mailto:sushant98677@gmail.com',
       label: 'Send an email'
     },
     {
