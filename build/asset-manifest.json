@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.51e8f72d.css",
-    "main.js": "/static/js/main.8f02cc9c.js",
+    "main.css": "/static/css/main.80025c16.css",
+    "main.js": "/static/js/main.ce54173f.js",
     "static/js/239.2abdca91.chunk.js": "/static/js/239.2abdca91.chunk.js",
     "static/js/977.0176ef9d.chunk.js": "/static/js/977.0176ef9d.chunk.js",
     "static/js/455.d76d52f8.chunk.js": "/static/js/455.d76d52f8.chunk.js",
@@ -12,18 +12,17 @@
     "static/media/Electronest.png": "/static/media/Electronest.6061a5ef90094bdd81ca.png",
     "static/media/Urbanwave.png": "/static/media/Urbanwave.d3888a5a02d0f7226396.png",
     "static/media/me.png": "/static/media/me.d7e359d4a8fe9616048c.png",
-    "static/media/ai-car-banner.jpg": "/static/media/ai-car-banner.933047e874c2b37eb77c.jpg",
     "static/media/logo.png": "/static/media/logo.3ee24660e0322977adc3.png",
     "index.html": "/index.html",
-    "main.51e8f72d.css.map": "/static/css/main.51e8f72d.css.map",
-    "main.8f02cc9c.js.map": "/static/js/main.8f02cc9c.js.map",
+    "main.80025c16.css.map": "/static/css/main.80025c16.css.map",
+    "main.ce54173f.js.map": "/static/js/main.ce54173f.js.map",
     "239.2abdca91.chunk.js.map": "/static/js/239.2abdca91.chunk.js.map",
     "977.0176ef9d.chunk.js.map": "/static/js/977.0176ef9d.chunk.js.map",
     "455.d76d52f8.chunk.js.map": "/static/js/455.d76d52f8.chunk.js.map",
     "453.38208c36.chunk.js.map": "/static/js/453.38208c36.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.51e8f72d.css",
-    "static/js/main.8f02cc9c.js"
+    "static/css/main.80025c16.css",
+    "static/js/main.ce54173f.js"
   ]
 }

@@ -4,9 +4,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import urbanwaveImg from '../components/images/Urbanwave.png';
 import electronestImg from '../components/images/Electronest.png';
-import aiCarBannerImg from '../components/images/ai-car-banner.jpg';
 import spaceInvaderImg from '../components/images/space Invader.png';
 import snakeGameImg from '../components/images/snake game.png';
+import logoImg from '../components/images/logo.png';
 
 /* ─── Project Data ─── */
 const projects = [
@@ -33,15 +33,15 @@ const projects = [
     gradient: 'from-sky-500 to-indigo-400',
   },
   {
-    title: 'AI Car Obstacle Avoidance',
-    category: 'AI / ML',
+    title: 'CineScope Intelligence',
+    category: 'AI / Web App',
     description:
-      'Self-driving car simulation where a neural network learns track navigation through iterative training — no hard-coded rules, pure machine learning.',
-    tech: ['Python', 'Neural Network', 'Pygame'],
-    github: 'https://github.com/sushant347/AI_Car_Project',
-    live: 'https://github.com/sushant347/AI_Car_Project',
-    image: aiCarBannerImg,
-    gradient: 'from-purple-500 to-violet-400',
+      'An intelligent movie discovery platform with data-driven recommendations and modern UI workflows for faster content exploration.',
+    tech: ['React', 'Node.js', 'MongoDB', 'AI Recommendations'],
+    github: 'https://github.com/sushant347/CineScope-Intelligence',
+    live: 'https://github.com/sushant347/CineScope-Intelligence',
+    image: logoImg,
+    gradient: 'from-indigo-500 to-blue-400',
   },
   {
     title: 'Space Invader Game',
@@ -148,6 +148,8 @@ const Gallery = () => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Bottom fade */}

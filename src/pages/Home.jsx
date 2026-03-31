@@ -182,10 +182,10 @@ const Home = () => {
       underline: true,
     });
 
-    addParagraph('AI Car Obstacle Avoidance', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Self-driving car simulation where a neural network learns track navigation iteratively.');
-    addBullet('Stack: Python, Neural Network, Pygame');
-    addBullet('GitHub: https://github.com/sushant347/AI_Car_Project', {
+    addParagraph('CineScope Intelligence', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('AI-powered movie discovery platform focused on intelligent recommendations and rich exploration.');
+    addBullet('Stack: React, Node.js, MongoDB, AI Recommendations');
+    addBullet('GitHub: https://github.com/sushant347/CineScope-Intelligence', {
       color: [37, 99, 235],
       underline: true,
     });
@@ -246,6 +246,11 @@ const Home = () => {
             <img
               src={mePhoto}
               alt="Sushant Gautam"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              width="580"
+              height="820"
               className="relative z-10 w-auto max-w-[210px] sm:max-w-[300px] lg:max-w-none lg:h-[98%] object-contain object-bottom transition-transform duration-500 hover:scale-[1.02] select-none lg:-translate-y-8"
               style={{
                 maskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',

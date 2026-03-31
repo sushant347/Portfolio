@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
-import Intro from './pages/intro';
 import './App.css';
 
 // 1. IMPORT YOUR LOGO
@@ -83,8 +82,6 @@ const Preloader = ({ onComplete }) => {
 
 function App() {
   const [showPreloader, setShowPreloader] = useState(true);
-  const [showIntro, setShowIntro] = useState(false);
-  const [showMain, setShowMain] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -101,18 +98,10 @@ function App() {
         {showPreloader && (
           <Preloader onComplete={() => {
             setShowPreloader(false);
-            setShowIntro(true);
           }} />
         )}
 
-        {showIntro && (
-          <Intro onComplete={() => {
-            setShowIntro(false);
-            setShowMain(true);
-          }} />
-        )}
-
-        {showMain && (
+        {!showPreloader && (
           <>
             <Navbar />
             <main className="pt-20">

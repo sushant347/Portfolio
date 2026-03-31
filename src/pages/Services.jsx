@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {
   CheckCircle, Search, NotebookPen, Code, Rocket,
-  ExternalLink, Gamepad2, Car, BookOpen, Globe, Github
+  ExternalLink, Gamepad2, Film, BookOpen, Globe, Github
 } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -41,14 +41,14 @@ const Services = () => {
       delay: 100,
     },
     {
-      icon: Car,
-      title: 'AI Car Project',
-      description: 'A self-driving car simulation powered by a neural network that autonomously learns to navigate tracks — no hard-coded rules, pure machine learning.',
-      tech: ['Python', 'Neural Network', 'Pygame'],
-      github: 'https://github.com/sushant347/AI_Car_Project',
-      live: 'https://github.com/sushant347/AI_Car_Project',
-      color: 'text-purple-500',
-      gradient: 'from-purple-500 to-pink-500',
+      icon: Film,
+      title: 'CineScope Intelligence',
+      description: 'An AI-powered movie intelligence platform designed for smart discovery, recommendation, and better content exploration.',
+      tech: ['React', 'Node.js', 'MongoDB', 'AI Recommendations'],
+      github: 'https://github.com/sushant347/CineScope-Intelligence',
+      live: 'https://github.com/sushant347/CineScope-Intelligence',
+      color: 'text-indigo-500',
+      gradient: 'from-indigo-500 to-blue-500',
       delay: 200,
     },
     {
