@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, ArrowRight } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,16 +9,6 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      offset: 120,
-      easing: 'ease-out-cubic',
-      once: false,
-      mirror: true,
-    });
-  }, []);
 
   const handleChange = (e) => {
     setFormData({

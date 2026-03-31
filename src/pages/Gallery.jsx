@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import urbanwaveImg from '../components/images/Urbanwave.png';
 import electronestImg from '../components/images/Electronest.png';
 import spaceInvaderImg from '../components/images/space Invader.png';
@@ -69,10 +67,6 @@ const projects = [
 
 /* ─── Gallery Component ─── */
 const Gallery = () => {
-  useEffect(() => {
-    AOS.init({ duration: 900, once: false, mirror: true, easing: 'ease-out-cubic' });
-  }, []);
-
   return (
     <section
       id="gallery"

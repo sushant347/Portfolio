@@ -1,22 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   CheckCircle, Search, NotebookPen, Code, Rocket,
   ExternalLink, Gamepad2, Film, BookOpen, Globe, Github
 } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const Services = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      offset: 120,
-      easing: 'ease-out-cubic',
-      once: false,
-      mirror: true,
-    });
-  }, []);
-
   const projects = [
     {
       icon: Globe,

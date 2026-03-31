@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Github, Instagram, Mail, Phone, ExternalLink, Download } from 'lucide-react';
-import AOS from 'aos';
 import { jsPDF } from 'jspdf';
-import 'aos/dist/aos.css';
 import mePhoto from '../components/images/mee.png';
 
 const roles = [
@@ -17,10 +15,6 @@ const Home = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
-
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: false, mirror: true, easing: 'ease-out-cubic' });
-  }, []);
 
   useEffect(() => {
     const handleTyping = () => {

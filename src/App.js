@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,111 +8,73 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import './App.css';
 
-// 1. IMPORT YOUR LOGO
-import logo from './components/images/logo.png'; 
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Preloader = ({ onComplete }) => {
-  const [fadeOut, setFadeOut] = useState(false);
+function App() {
+  useLayoutEffect(() => {
+    const canManageScrollRestoration = 'scrollRestoration' in window.history;
+    const previousScrollRestoration = canManageScrollRestoration
+      ? window.history.scrollRestoration
+      : null;
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-    }, 1500);
+    if (canManageScrollRestoration) {
+      window.history.scrollRestoration = 'manual';
+    }
 
-    const completeTimer = setTimeout(() => {
-      onComplete();
-    }, 2000);
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
     return () => {
-      clearTimeout(timer);
-      clearTimeout(completeTimer);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      if (canManageScrollRestoration && previousScrollRestoration) {
+        window.history.scrollRestoration = previousScrollRestoration;
+      }
     };
-  }, [onComplete]);
-
-  return (
-    <div 
-      className={`preloader ${fadeOut ? 'fade-out' : ''}`}
-      // Ensure background matches your theme variables
-      style={{ background: 'var(--bg-primary)' }} 
-    >
-      <div className="relative flex flex-col items-center justify-center">
-        
-        {/* LOGO CONTAINER */}
-        <div className="relative mb-8">
-          
-          
-          {/* The Logo Image */}
-          <img 
-            src={logo} 
-            alt="Loading..." 
-            className="relative z-20 w-50 h-40 object-contain animate-bounce-subtle" 
-          />
-        </div>
-
-        {/* LOADING BAR */}
-        <div className="loading-bar">
-          <div className="loading-bar-inner"></div>
-        </div>
-
-        {/* Loading Text */}
-        <p 
-          className="preloader-text mt-4 text-sm font-bold tracking-[0.3em] uppercase animate-pulse"
-          style={{ color: 'var(--text-secondary)' }}
-        >
-          Loading
-        </p>
-      </div>
-
-      {/* Custom Keyframe for subtle bounce if not in global css */}
-      <style>{`
-        @keyframes bounce-subtle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-5px); }
-        }
-        .animate-bounce-subtle {
-          animation: bounce-subtle 2s infinite ease-in-out;
-        }
-      `}</style>
-    </div>
-  );
-};
-
-function App() {
-  const [showPreloader, setShowPreloader] = useState(true);
+  }, []);
 
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      once: true,
-      easing: 'ease-out',
+      duration: 900,
+      offset: 90,
+      once: false,
+      mirror: true,
+      easing: 'ease-out-cubic',
+      debounceDelay: 50,
+      throttleDelay: 99,
     });
+
+    const refreshAnimations = () => {
+      AOS.refreshHard();
+    };
+
+    window.addEventListener('load', refreshAnimations);
+    window.addEventListener('resize', refreshAnimations);
+    const refreshTimeout = window.setTimeout(refreshAnimations, 200);
+
+    return () => {
+      window.removeEventListener('load', refreshAnimations);
+      window.removeEventListener('resize', refreshAnimations);
+      window.clearTimeout(refreshTimeout);
+    };
   }, []);
 
   return (
     <ThemeProvider>
       <div className="min-h-screen" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
-        
-        {showPreloader && (
-          <Preloader onComplete={() => {
-            setShowPreloader(false);
-          }} />
-        )}
-
-        {!showPreloader && (
-          <>
-            <Navbar />
-            <main className="pt-20">
-              <Home />
-              <About />
-              <Gallery />
-              <Contact />
-            </main>
-            <Footer />
-          </>
-        )}
+        <Navbar />
+        <main className="pt-20">
+          <Home />
+          <About />
+          <Gallery />
+          <Contact />
+        </main>
+        <Footer />
       </div>
     </ThemeProvider>
   );
