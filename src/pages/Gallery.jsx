@@ -5,6 +5,7 @@ import electronestImg from '../components/images/Electronest.png';
 import spaceInvaderImg from '../components/images/space Invader.png';
 import snakeGameImg from '../components/images/snake game.png';
 import logoImg from '../components/images/logo.png';
+import cinescopeImg from '../components/images/cinescope.png';
 
 /* ─── Project Data ─── */
 const projects = [
@@ -37,8 +38,8 @@ const projects = [
       'An intelligent movie discovery platform with data-driven recommendations and modern UI workflows for faster content exploration.',
     tech: ['React', 'Node.js', 'MongoDB', 'AI Recommendations'],
     github: 'https://github.com/sushant347/CineScope-Intelligence',
-    live: 'https://github.com/sushant347/CineScope-Intelligence',
-    image: logoImg,
+    live: 'https://cine-scope-intelligence.vercel.app/',
+    image: cinescopeImg,
     gradient: 'from-indigo-500 to-blue-400',
   },
   {
