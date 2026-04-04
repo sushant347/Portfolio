@@ -31,7 +31,7 @@ const Services = () => {
     {
       icon: Film,
       title: 'CineScope Intelligence',
-      description: 'An AI-powered movie intelligence platform designed for smart discovery, recommendation, and better content exploration.',
+      description: 'CineScope Intelligence is a full-stack NLP application that analyzes movie reviews and returns sentiment insights with confidence scores, explainability output, and aspect-level analysis.',
       tech: ['React', 'Node.js', 'MongoDB', 'AI Recommendations'],
       github: 'https://github.com/sushant347/CineScope-Intelligence',
       live: 'https://github.com/sushant347/CineScope-Intelligence',

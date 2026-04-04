@@ -177,7 +177,7 @@ const Home = () => {
     });
 
     addParagraph('CineScope Intelligence', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('AI-powered movie discovery platform focused on intelligent recommendations and rich exploration.');
+    addBullet('CineScope Intelligence is a full-stack NLP application that analyzes movie reviews and returns sentiment insights with confidence scores, explainability output, and aspect-level analysis.');
     addBullet('Stack: React, Node.js, MongoDB, AI Recommendations');
     addBullet('GitHub: https://github.com/sushant347/CineScope-Intelligence', {
       color: [37, 99, 235],

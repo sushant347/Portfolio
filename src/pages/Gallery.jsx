@@ -35,8 +35,8 @@ const projects = [
     title: 'CineScope Intelligence',
     category: 'AI / Web App',
     description:
-      'An intelligent movie discovery platform with data-driven recommendations and modern UI workflows for faster content exploration.',
-    tech: ['React', 'Node.js', 'MongoDB', 'AI Recommendations'],
+      'CineScope Intelligence is a full-stack NLP application that analyzes movie reviews and returns sentiment insights with confidence scores, explainability output, and aspect-level analysis.',
+    tech: ['React', 'django', 'PostgreSQL','Bert-based NLP','logistic regression','svm','Vader sentiment analysis'],
     github: 'https://github.com/sushant347/CineScope-Intelligence',
     live: 'https://cine-scope-intelligence.vercel.app/',
     image: cinescopeImg,
