@@ -10,22 +10,22 @@ import cinescopeImg from '../components/images/cinescope.png';
 /* ─── Project Data ─── */
 const projects = [
   {
-    title: 'UrbanWave E-commerce',
-    category: 'Web Development',
+    title: 'CineMatch',
+    category: 'AI / Recommendation System',
     description:
-      'UrbanWave e-commerce frontend with product listing, shopping cart flow, and checkout simulation built entirely with vanilla web technologies.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-',
-    live: 'https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html',
-    image: urbanwaveImg,
-    gradient: 'from-blue-500 to-cyan-400',
+      'Full-stack movie recommendation platform using collaborative filtering, TF-IDF content matching, and popularity-based ranking with explainable results.',
+    tech: ['React', 'Django', 'PostgreSQL', 'NLP', 'ALS'],
+    github: 'https://github.com/sushant347/CineMatch',
+    hideLiveDemo: true,
+    image: logoImg,
+    gradient: 'from-violet-500 to-indigo-400',
   },
   {
     title: 'ElectroNest',
-    category: 'Web Development',
+    category: 'Full Stack Web App',
     description:
-      'ElectroNest — an electronics e-commerce platform with product listings, cart management, and a seamless checkout experience.',
-    tech: ['React', 'django', 'Tailwind CSS','ML forecasting', 'PostgreSQL',"MS SQL"],
+      'ElectroNest is an electronics e-commerce platform with product listings, cart management, and a streamlined checkout experience.',
+    tech: ['React', 'Django', 'Tailwind CSS', 'PostgreSQL', 'ML Forecasting'],
     github: 'https://github.com/sushant347/ElectroNest',
     live: 'https://electro-nest.vercel.app',
     image: electronestImg,
@@ -33,14 +33,36 @@ const projects = [
   },
   {
     title: 'CineScope Intelligence',
-    category: 'AI / Web App',
+    category: 'AI / NLP Web App',
     description:
-      'CineScope Intelligence is a full-stack NLP application that analyzes movie reviews and returns sentiment insights with confidence scores, explainability output, and aspect-level analysis.',
-    tech: ['React', 'django', 'PostgreSQL','Bert-based NLP','logistic regression','svm','Vader sentiment analysis'],
+      'CineScope Intelligence analyzes movie reviews and returns sentiment insights with confidence scores, explainability output, and aspect-level analysis.',
+    tech: ['React', 'Django', 'PostgreSQL', 'BERT NLP', 'Logistic Regression', 'SVM', 'VADER'],
     github: 'https://github.com/sushant347/CineScope-Intelligence',
-    live: 'https://cine-scope-intelligence.vercel.app/',
+    hideLiveDemo: true,
     image: cinescopeImg,
     gradient: 'from-indigo-500 to-blue-400',
+  },
+  {
+    title: 'Nepali News Summarizer',
+    category: 'AI / NLP Dashboard',
+    description:
+      'AI-powered Nepali news dashboard that aggregates sources, generates concise Nepali summaries, analyzes sentiment, tracks trends, and serves results via API.',
+    tech: ['React', 'Django REST', 'PostgreSQL', 'NLP', 'Sentiment Analysis'],
+    github: 'https://github.com/sushant347/Nepali-News-Summarizer',
+    hideLiveDemo: true,
+    image: logoImg,
+    gradient: 'from-orange-500 to-amber-400',
+  },
+  {
+    title: 'UrbanWave E-commerce',
+    category: 'Frontend Web Project',
+    description:
+      'E-commerce frontend with product listing, shopping cart flow, and checkout simulation built using vanilla web technologies.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-',
+    live: 'https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html',
+    image: urbanwaveImg,
+    gradient: 'from-blue-500 to-cyan-400',
   },
   {
     title: 'Space Invader Game',
@@ -49,7 +71,7 @@ const projects = [
       'Arcade-style space shooter rebuilt with Python and Pygame, featuring wave progression, live score tracking, and fluid movement controls.',
     tech: ['Python', 'Pygame'],
     github: 'https://github.com/sushant347/Space-Invadar-Game',
-    live: 'https://github.com/sushant347/Space-Invadar-Game',
+    hideLiveDemo: true,
     image: spaceInvaderImg,
     gradient: 'from-cyan-500 to-blue-400',
   },
@@ -60,7 +82,7 @@ const projects = [
       'Classic Snake game with responsive keyboard controls, collision logic, progressive difficulty, and persistent high-score tracking.',
     tech: ['Python', 'Pygame'],
     github: 'https://github.com/sushant347/Snake-Game',
-    live: 'https://github.com/sushant347/Snake-Game',
+    hideLiveDemo: true,
     image: snakeGameImg,
     gradient: 'from-emerald-500 to-green-400',
   },
@@ -190,19 +212,23 @@ const Gallery = () => {
 
                   {/* Action buttons */}
                   <div className="flex gap-3 pt-4 border-t" style={{ borderColor: 'var(--border-color)' }}>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`relative z-10 flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:brightness-110 bg-gradient-to-r ${project.gradient}`}
-                    >
-                      <ExternalLink size={15} /> Live Demo
-                    </a>
+                    {!project.hideLiveDemo && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`relative z-10 flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:brightness-110 bg-gradient-to-r ${project.gradient}`}
+                      >
+                        <ExternalLink size={15} /> Live Demo
+                      </a>
+                    )}
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative z-10 flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
+                      className={`relative z-10 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03] ${
+                        project.hideLiveDemo ? 'w-full' : 'flex-1'
+                      }`}
                       style={{
                         background: 'var(--bg-tertiary)',
                         color: 'var(--text-primary)',
