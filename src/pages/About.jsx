@@ -28,7 +28,7 @@ const About = () => {
     {
       title: 'Tools & Workflow',
       icon: <Terminal className="w-5 h-5" />,
-      skills: ['Git/GitHub', 'Docker Basics', 'Agile Workflow', 'Problem Solving'],
+      skills: ['Git/GitHub', 'Agile Workflow', 'Problem Solving'],
       color: 'from-indigo-500 to-violet-400',
       delay: 400,
     },
