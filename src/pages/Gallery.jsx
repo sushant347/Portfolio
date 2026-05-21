@@ -4,7 +4,6 @@ import urbanwaveImg from '../components/images/Urbanwave.png';
 import electronestImg from '../components/images/Electronest.png';
 import spaceInvaderImg from '../components/images/space Invader.png';
 import snakeGameImg from '../components/images/snake game.png';
-import logoImg from '../components/images/logo.png';
 import cinescopeImg from '../components/images/cinescope.png';
 import cinematchImg from '../components/images/Cinematch.png';
 import nepaliNewsImg from '../components/images/Nepali News.png';

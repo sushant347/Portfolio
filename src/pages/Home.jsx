@@ -177,6 +177,11 @@ const Home = () => {
     addBullet('Stack: React, Django REST, PostgreSQL, NLP');
     addLinkLine('GitHub', 'https://github.com/sushant347/Nepali-News-Summarizer');
 
+    addParagraph('Kharchi (Expense Tracker)', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('AI-powered expense tracker that classifies spending, predicts trends, and offers savings insights.');
+    addBullet('Stack: React, Django, Scikit-learn, NLP, PostgreSQL');
+    addLinkLine('GitHub', 'https://github.com/sushant347/Smart-Expense-Analyzer-with-ML-NLP-Django-React-');
+
     addParagraph('UrbanWave E-commerce', { weight: 'bold', color: [31, 41, 55] });
     addBullet('E-commerce frontend with product listing, cart flow, and checkout simulation.');
     addBullet('Stack: HTML, CSS, JavaScript');
