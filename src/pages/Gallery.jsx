@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import urbanwaveImg from '../components/images/Urbanwave.png';
 import electronestImg from '../components/images/Electronest.png';
@@ -6,23 +6,28 @@ import spaceInvaderImg from '../components/images/space Invader.png';
 import snakeGameImg from '../components/images/snake game.png';
 import logoImg from '../components/images/logo.png';
 import cinescopeImg from '../components/images/cinescope.png';
+import cinematchImg from '../components/images/Cinematch.png';
+import nepaliNewsImg from '../components/images/Nepali News.png';
+import kharchiImg from '../components/images/Kharchi.png';
 
 /* ─── Project Data ─── */
 const projects = [
   {
     title: 'CineMatch',
     category: 'AI / Recommendation System',
+    tab: 'AI & ML',
     description:
       'Full-stack movie recommendation platform using collaborative filtering, TF-IDF content matching, and popularity-based ranking with explainable results.',
     tech: ['React', 'Django', 'PostgreSQL', 'NLP', 'ALS'],
     github: 'https://github.com/sushant347/CineMatch',
     hideLiveDemo: true,
-    image: logoImg,
+    image: cinematchImg,
     gradient: 'from-violet-500 to-indigo-400',
   },
   {
     title: 'ElectroNest',
     category: 'Full Stack Web App',
+    tab: 'Web Apps',
     description:
       'ElectroNest is an electronics e-commerce platform with product listings, cart management, and a streamlined checkout experience.',
     tech: ['React', 'Django', 'Tailwind CSS', 'PostgreSQL', 'ML Forecasting'],
@@ -34,6 +39,7 @@ const projects = [
   {
     title: 'CineScope Intelligence',
     category: 'AI / NLP Web App',
+    tab: 'AI & ML',
     description:
       'CineScope Intelligence analyzes movie reviews and returns sentiment insights with confidence scores, explainability output, and aspect-level analysis.',
     tech: ['React', 'Django', 'PostgreSQL', 'BERT NLP', 'Logistic Regression', 'SVM', 'VADER'],
@@ -45,28 +51,31 @@ const projects = [
   {
     title: 'Nepali News Summarizer',
     category: 'AI / NLP Dashboard',
+    tab: 'AI & ML',
     description:
       'AI-powered Nepali news dashboard that aggregates sources, generates concise Nepali summaries, analyzes sentiment, tracks trends, and serves results via API.',
     tech: ['React', 'Django REST', 'PostgreSQL', 'NLP', 'Sentiment Analysis'],
     github: 'https://github.com/sushant347/Nepali-News-Summarizer',
     hideLiveDemo: true,
-    image: logoImg,
+    image: nepaliNewsImg,
     gradient: 'from-orange-500 to-amber-400',
   },
   {
-    title: 'Smart Expense Analyzer',
+    title: 'Kharchi',
     category: 'AI / FinTech Web App',
+    tab: 'AI & ML',
     description:
       'AI-powered personal finance application that classifies expenses using NLP, forecasts spending trends, and provides practical savings insights.',
     tech: ['React', 'Django', 'Scikit-learn', 'NLP', 'PostgreSQL'],
     github: 'https://github.com/sushant347/Smart-Expense-Analyzer-with-ML-NLP-Django-React-',
     hideLiveDemo: true,
-    image: logoImg,
+    image: kharchiImg,
     gradient: 'from-rose-500 to-orange-400',
   },
   {
     title: 'UrbanWave E-commerce',
     category: 'Frontend Web Project',
+    tab: 'Web Apps',
     description:
       'E-commerce frontend with product listing, shopping cart flow, and checkout simulation built using vanilla web technologies.',
     tech: ['HTML', 'CSS', 'JavaScript'],
@@ -78,6 +87,7 @@ const projects = [
   {
     title: 'Space Invader Game',
     category: 'Game Development',
+    tab: 'Games',
     description:
       'Arcade-style space shooter rebuilt with Python and Pygame, featuring wave progression, live score tracking, and fluid movement controls.',
     tech: ['Python', 'Pygame'],
@@ -89,6 +99,7 @@ const projects = [
   {
     title: 'Snake Game',
     category: 'Game Development',
+    tab: 'Games',
     description:
       'Classic Snake game with responsive keyboard controls, collision logic, progressive difficulty, and persistent high-score tracking.',
     tech: ['Python', 'Pygame'],
@@ -101,6 +112,14 @@ const projects = [
 
 /* ─── Gallery Component ─── */
 const Gallery = () => {
+  const tabs = ['All', 'AI & ML', 'Web Apps', 'Games'];
+  const [activeTab, setActiveTab] = useState('All');
+
+  const filteredProjects = useMemo(
+    () => projects.filter((project) => activeTab === 'All' || project.tab === activeTab),
+    [activeTab]
+  );
+
   return (
     <section
       id="gallery"
@@ -148,11 +167,32 @@ const Gallery = () => {
           >
             A curated set of projects across web development, AI, and game programming — each with source code and a live destination where available.
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+                  activeTab === tab ? 'text-white' : ''
+                }`}
+                style={{
+                  background:
+                    activeTab === tab ? 'var(--accent-color)' : 'var(--bg-tertiary)',
+                  color: activeTab === tab ? '#ffffff' : 'var(--text-secondary)',
+                  border: '1px solid var(--border-color)',
+                }}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
         </header>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, index) => {
+          {filteredProjects.map((project, index) => {
             return (
               <article
                 key={project.title}
