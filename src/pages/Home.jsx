@@ -69,8 +69,8 @@ const Home = () => {
       }
     };
 
-    const addHeading = (title) => {
-      ensureSpace(10);
+    const addHeading = (title, minContentHeight = 14) => {
+      ensureSpace(10 + minContentHeight);
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(13);
       doc.setTextColor(24, 24, 27);
@@ -139,21 +139,24 @@ const Home = () => {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10.5);
     doc.setTextColor(75, 85, 99);
-    doc.text('Full Stack Developer | Computer Engineering Student', left, y);
+    doc.text('Computer Engineering Student | Full Stack Developer', left, y);
     y += 6;
-    doc.text('Kathmandu, Nepal | +977 9869465432 | sushantgautam98677@gmail.com', left, y);
+    doc.text('Chyasal-07, Lalitpur, Nepal | +977 9869465432 | sushantgautam98677@gmail.com', left, y);
     y += 6;
     doc.textWithLink('GitHub: https://github.com/sushant347', left, y, {
       url: 'https://github.com/sushant347',
     });
+    doc.textWithLink('Portfolio: https://www.sushantgautam347.com.np', left + 92, y, {
+          url: 'https://www.sushantgautam347.com.np/',
+        });
     y += 8;
 
     addHeading('Professional Summary');
     addParagraph(
-      'Computer Engineering student and full stack developer with hands-on experience building web applications and AI-powered features. I focus on clean architecture, practical problem solving, and maintainable code.'
+      'Motivated Computer Engineering student (6th semester) with strong foundations in full-stack web development and practical NLP/ML integration. Experienced in building end-to-end projects using React, Django, and PostgreSQL with focus on reliability, usability, and maintainable code.'
     );
     addParagraph(
-      'Built projects across e-commerce, NLP, recommendation systems, and game development using React, Django, PostgreSQL, and Python-based ML libraries.'
+      'Seeking software engineering internship opportunities to contribute to real products, strengthen engineering depth, and solve meaningful technical challenges.'
     );
 
     addHeading('Technical Skills');
@@ -202,7 +205,12 @@ const Home = () => {
     addLinkLine('GitHub', 'https://github.com/sushant347/Snake-Game');
 
     addHeading('Education');
-    addBullet('Bachelor-level Computer Engineering (ongoing)');
+    addParagraph('Himalaya Engineering College — Chyasal-07, Lalitpur', {
+      weight: 'bold',
+      color: [31, 41, 55],
+    });
+    addBullet('Bachelor in Computer Engineering | Currently in 6th Semester');
+    addBullet('Relevant Coursework: Data Structures, OOP, DBMS, Software Engineering');
 
     addHeading('Languages');
     addBullet('English, Nepali');
@@ -312,9 +320,8 @@ const Home = () => {
               className="text-sm sm:text-base md:text-[1.05rem] leading-[1.9] max-w-xl mx-auto lg:mx-0"
               style={{ color: 'var(--text-secondary)', textAlign: 'justify' }}
             >
-              I craft exceptional digital experiences through innovative web development and elegant design.
-              Specialized in React, Django, Node.js, and modern UI technologies — turning ideas into fast,
-              accessible, and visually polished products.
+              I build user-focused web applications with React, Django, and practical AI integration.
+              I enjoy turning ideas into reliable, maintainable, and polished digital products.
             </p>
 
             {/* Buttons */}
