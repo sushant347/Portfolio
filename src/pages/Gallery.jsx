@@ -54,6 +54,17 @@ const projects = [
     gradient: 'from-orange-500 to-amber-400',
   },
   {
+    title: 'Smart Expense Analyzer',
+    category: 'AI / FinTech Web App',
+    description:
+      'AI-powered personal finance application that classifies expenses using NLP, forecasts spending trends, and provides practical savings insights.',
+    tech: ['React', 'Django', 'Scikit-learn', 'NLP', 'PostgreSQL'],
+    github: 'https://github.com/sushant347/Smart-Expense-Analyzer-with-ML-NLP-Django-React-',
+    hideLiveDemo: true,
+    image: logoImg,
+    gradient: 'from-rose-500 to-orange-400',
+  },
+  {
     title: 'UrbanWave E-commerce',
     category: 'Frontend Web Project',
     description:
