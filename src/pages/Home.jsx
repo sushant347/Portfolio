@@ -120,6 +120,16 @@ const Home = () => {
       y += lines.length * lineGap + 1;
     };
 
+    const addLinkLine = (label, url) => {
+      const text = `${label}: ${url}`;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10.5);
+      doc.setTextColor(37, 99, 235);
+      ensureSpace(lineGap + 2);
+      doc.textWithLink(text, left, y, { url });
+      y += lineGap + 1;
+    };
+
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(24);
     doc.setTextColor(17, 24, 39);
@@ -133,72 +143,63 @@ const Home = () => {
     y += 6;
     doc.text('Kathmandu, Nepal | +977 9869465432 | sushantgautam98677@gmail.com', left, y);
     y += 6;
-    doc.text('GitHub: https://github.com/sushant347', left, y);
+    doc.textWithLink('GitHub: https://github.com/sushant347', left, y, {
+      url: 'https://github.com/sushant347',
+    });
     y += 8;
 
     addHeading('Professional Summary');
     addParagraph(
-      'I am Sushant Gautam, a Computer Engineering student and full stack developer focused on creating reliable, user-friendly web products. I enjoy combining frontend polish with strong backend fundamentals to build solutions that are both fast and maintainable.'
+      'Computer Engineering student and full stack developer with hands-on experience building web applications and AI-powered features. I focus on clean architecture, practical problem solving, and maintainable code.'
     );
     addParagraph(
-      'My workflow is simple: understand the real problem, design a clean architecture, and execute with attention to detail. I bring the same discipline to UI design, APIs, and machine learning projects.'
+      'Built projects across e-commerce, NLP, recommendation systems, and game development using React, Django, PostgreSQL, and Python-based ML libraries.'
     );
 
     addHeading('Technical Skills');
-    addBullet('Frontend: React.js, Tailwind CSS, Next.js, TypeScript, JavaScript, HTML, CSS');
-    addBullet('Backend: Node.js, Django, REST APIs');
-    addBullet('Database: MongoDB, PostgreSQL');
-    addBullet('AI and Data: Python, PyTorch, TensorFlow, Scikit-learn');
-    addBullet('Tools: Git/GitHub, Linux, Problem Solving');
+    addBullet('Frontend: React.js, JavaScript, Tailwind CSS, HTML, CSS');
+    addBullet('Backend: Django, REST APIs');
+    addBullet('Database: PostgreSQL, MS SQL Server, MongoDB');
+    addBullet('AI and Data: Python, PyTorch, Scikit-learn, NLP');
+    addBullet('Tools: Git/GitHub, Agile Workflow, Problem Solving');
 
     addHeading('Featured Projects');
+    addParagraph('CineMatch', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('Movie recommendation system combining collaborative filtering, NLP-based similarity, and popularity ranking.');
+    addBullet('Stack: React, Django, PostgreSQL, NLP');
+    addLinkLine('GitHub', 'https://github.com/sushant347/CineMatch');
+
+    addParagraph('Nepali News Summarizer', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('News dashboard that aggregates Nepali news, creates summaries, and analyzes sentiment with API support.');
+    addBullet('Stack: React, Django REST, PostgreSQL, NLP');
+    addLinkLine('GitHub', 'https://github.com/sushant347/Nepali-News-Summarizer');
+
     addParagraph('UrbanWave E-commerce', { weight: 'bold', color: [31, 41, 55] });
     addBullet('E-commerce frontend with product listing, cart flow, and checkout simulation.');
     addBullet('Stack: HTML, CSS, JavaScript');
-    addBullet('GitHub: https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-', {
-      color: [37, 99, 235],
-      underline: true,
-    });
-    addBullet('Live: https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html', {
-      color: [37, 99, 235],
-      underline: true,
-    });
+    addLinkLine('GitHub', 'https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-');
+    addLinkLine('Live', 'https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html');
 
     addParagraph('ElectroNest', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Electronics e-commerce platform with product listings, cart management, and smooth checkout flow.');
-    addBullet('Stack: React, JavaScript, CSS');
-    addBullet('GitHub: https://github.com/sushant347/ElectroNest', {
-      color: [37, 99, 235],
-      underline: true,
-    });
-    addBullet('Live: https://electro-nest.vercel.app', {
-      color: [37, 99, 235],
-      underline: true,
-    });
+    addBullet('Electronics e-commerce platform with product listing, cart management, and checkout workflow.');
+    addBullet('Stack: React, Django, PostgreSQL, Tailwind CSS');
+    addLinkLine('GitHub', 'https://github.com/sushant347/ElectroNest');
+    addLinkLine('Live', 'https://electro-nest.vercel.app');
 
     addParagraph('CineScope Intelligence', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('CineScope Intelligence is a full-stack NLP application that analyzes movie reviews and returns sentiment insights with confidence scores, explainability output, and aspect-level analysis.');
-    addBullet('Stack: React, Node.js, MongoDB, AI Recommendations');
-    addBullet('GitHub: https://github.com/sushant347/CineScope-Intelligence', {
-      color: [37, 99, 235],
-      underline: true,
-    });
+    addBullet('NLP application for movie review sentiment analysis with confidence scoring and aspect-level insights.');
+    addBullet('Stack: React, Django, PostgreSQL, NLP models');
+    addLinkLine('GitHub', 'https://github.com/sushant347/CineScope-Intelligence');
 
     addParagraph('Space Invader Game', { weight: 'bold', color: [31, 41, 55] });
     addBullet('Arcade-style shooter featuring wave progression, score tracking, and smooth controls.');
     addBullet('Stack: Python, Pygame');
-    addBullet('GitHub: https://github.com/sushant347/Space-Invadar-Game', {
-      color: [37, 99, 235],
-      underline: true,
-    });
+    addLinkLine('GitHub', 'https://github.com/sushant347/Space-Invadar-Game');
 
     addParagraph('Snake Game', { weight: 'bold', color: [31, 41, 55] });
     addBullet('Classic snake game with collision logic, increasing difficulty, and high-score tracking.');
     addBullet('Stack: Python, Pygame');
-    addBullet('GitHub: https://github.com/sushant347/Snake-Game', {
-      color: [37, 99, 235],
-      underline: true,
-    });
+    addLinkLine('GitHub', 'https://github.com/sushant347/Snake-Game');
 
     addHeading('Education');
     addBullet('Bachelor-level Computer Engineering (ongoing)');
