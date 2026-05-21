@@ -7,28 +7,28 @@ const About = () => {
     {
       title: 'Frontend & Design',
       icon: <Layout className="w-5 h-5" />,
-      skills: ['React.js', 'Tailwind CSS', 'Next.js', 'TypeScript'],
+      skills: ['React.js', 'Tailwind CSS', 'JavaScript (ES6+)', 'Responsive UI'],
       color: 'from-blue-500 to-cyan-400',
       delay: 100,
     },
     {
       title: 'Backend & Database',
       icon: <Database className="w-5 h-5" />,
-      skills: ['Node.js', 'Django', 'MongoDB', 'PostgreSQL'],
+      skills: ['Django', 'REST APIs', 'PostgreSQL', 'MS SQL Server', 'MongoDB'],
       color: 'from-emerald-500 to-teal-400',
       delay: 200,
     },
     {
       title: 'AI & Data Science',
       icon: <Brain className="w-5 h-5" />,
-      skills: ['Python', 'PyTorch', 'TensorFlow', 'Scikit-learn'],
+      skills: ['Python', 'PyTorch', 'Scikit-learn', 'NLP', 'Model Evaluation'],
       color: 'from-orange-500 to-red-400',
       delay: 300,
     },
     {
       title: 'Tools & Workflow',
       icon: <Terminal className="w-5 h-5" />,
-      skills: ['Git/GitHub', 'Linux', 'REST APIs', 'Problem Solving'],
+      skills: ['Git/GitHub', 'Docker Basics', 'Agile Workflow', 'Problem Solving'],
       color: 'from-indigo-500 to-violet-400',
       delay: 400,
     },
@@ -123,10 +123,10 @@ const About = () => {
               }}
             >
               <p className="text-base md:text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                I am Sushant Gautam, a Computer Engineering student and full stack developer focused on creating reliable, user-friendly web products. I enjoy combining frontend polish with strong backend fundamentals to build solutions that are both fast and maintainable.
+                I am Sushant Gautam, a Computer Engineering student and full stack developer who builds reliable, user-focused software. My work combines clean frontend experiences, scalable backend architecture, and practical machine learning where it creates clear product value.
               </p>
               <p className="text-base md:text-lg leading-relaxed mt-4" style={{ color: 'var(--text-secondary)' }}>
-                My workflow is simple: understand the real problem, design a clean architecture, and execute with attention to detail. I bring the same discipline to UI design, APIs, and machine learning projects.
+                I focus on end-to-end delivery: understanding business requirements, translating them into maintainable systems, and shipping polished results. I am especially interested in AI-powered web applications, recommendation systems, and NLP-driven products.
               </p>
             </div>
           </div>
