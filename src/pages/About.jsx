@@ -1,6 +1,6 @@
 import React from 'react';
 import { Brain, Database, Layout, Terminal } from 'lucide-react';
-import mePhoto from '../components/images/me.png';
+import mePhoto from '../components/images/MePhotoo.png';
 
 const About = () => {
   const skillCategories = [
@@ -14,7 +14,7 @@ const About = () => {
     {
       title: 'Backend & Database',
       icon: <Database className="w-5 h-5" />,
-      skills: ['Django', 'REST APIs', 'PostgreSQL', 'MS SQL Server', 'MongoDB'],
+      skills: ['Django', 'REST APIs', 'PostgreSQL', 'MS SQL Server'],
       color: 'from-emerald-500 to-teal-400',
       delay: 200,
     },

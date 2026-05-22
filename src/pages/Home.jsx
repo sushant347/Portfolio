@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Github, Instagram, Mail, Phone, ExternalLink, Download } from 'lucide-react';
 import { jsPDF } from 'jspdf';
-import mePhoto from '../components/images/mee.png';
+import mePhoto from '../components/images/MePhotoo.png';
 
 const roles = [
   'Full Stack Developer',
