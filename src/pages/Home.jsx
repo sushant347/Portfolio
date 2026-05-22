@@ -146,9 +146,10 @@ const Home = () => {
     doc.textWithLink('GitHub: https://github.com/sushant347', left, y, {
       url: 'https://github.com/sushant347',
     });
-    doc.textWithLink('Portfolio: https://www.sushantgautam347.com.np', left + 92, y, {
-          url: 'https://www.sushantgautam347.com.np/',
-        });
+    y += 5;
+    doc.textWithLink('Portfolio: https://www.sushantgautam347.com.np', left, y, {
+      url: 'https://www.sushantgautam347.com.np/',
+    });
     y += 8;
 
     addHeading('Professional Summary');
