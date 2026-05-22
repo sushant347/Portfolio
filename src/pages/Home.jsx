@@ -163,7 +163,7 @@ const Home = () => {
     addHeading('Technical Skills');
     addBullet('Frontend: React.js, JavaScript, Tailwind CSS, HTML, CSS');
     addBullet('Backend: Django, REST APIs');
-    addBullet('Database: PostgreSQL, MS SQL Server, MongoDB');
+    addBullet('Database: PostgreSQL, MS SQL Server');
     addBullet('AI and Data: Python, PyTorch, Scikit-learn, NLP');
     addBullet('Tools: Git/GitHub, Agile Workflow, Problem Solving');
 
