@@ -46,7 +46,9 @@ const Footer = () => {
           <div className="space-y-3 sm:space-y-4">
             <h3 className="font-bold text-base sm:text-lg" style={{ color: 'var(--text-primary)' }}>Sushant Gautam</h3>
             <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Full-stack developer creating elegant digital solutions with modern technologies.
+              Computer engineering student building high-performance web apps with React, Django & AI.
+
+
             </p>
           </div>
 
