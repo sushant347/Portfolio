@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy, useEffect, useLayoutEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -13,6 +13,29 @@ const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 function App() {
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    scrollToTop();
+    window.addEventListener('load', scrollToTop, { once: true });
+    window.addEventListener('pageshow', scrollToTop);
+    window.addEventListener('beforeunload', scrollToTop);
+
+    return () => {
+      window.removeEventListener('load', scrollToTop);
+      window.removeEventListener('pageshow', scrollToTop);
+      window.removeEventListener('beforeunload', scrollToTop);
+    };
+  }, []);
+
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isSmallScreen = window.matchMedia('(max-width: 767px)').matches;
