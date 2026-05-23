@@ -29,29 +29,32 @@ function App() {
     });
 
     const refreshAnimations = () => AOS.refresh();
+    let resizeRaf = null;
+    const handleResize = () => {
+      if (resizeRaf) return;
+      resizeRaf = window.requestAnimationFrame(() => {
+        refreshAnimations();
+        resizeRaf = null;
+      });
+    };
 
     window.addEventListener('load', refreshAnimations, { once: true });
-    window.addEventListener('resize', refreshAnimations, { passive: true });
-    const refreshTimeout = window.setTimeout(refreshAnimations, 200);
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('orientationchange', refreshAnimations, { passive: true });
+    const refreshTimeoutA = window.setTimeout(refreshAnimations, 250);
+    const refreshTimeoutB = window.setTimeout(refreshAnimations, 1200);
+    const refreshTimeoutC = window.setTimeout(refreshAnimations, 2200);
 
     return () => {
       window.removeEventListener('load', refreshAnimations);
-      window.removeEventListener('resize', refreshAnimations);
-      window.clearTimeout(refreshTimeout);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', refreshAnimations);
+      window.clearTimeout(refreshTimeoutA);
+      window.clearTimeout(refreshTimeoutB);
+      window.clearTimeout(refreshTimeoutC);
+      if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
+      AOS.refreshHard();
     };
-  }, []);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      AOS.refresh();
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   return (

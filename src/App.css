@@ -208,6 +208,20 @@ p {
 .skill-title-icon.ai { background: linear-gradient(135deg, #f97316, #fb7185); }
 .skill-title-icon.tools { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
 
+[data-aos] {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .piano-key:hover {
+    transform: none;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+  }
+}
+
 .skill-group h5 {
   font-size: 0.82rem;
   text-transform: uppercase;
