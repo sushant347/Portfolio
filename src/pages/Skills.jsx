@@ -81,16 +81,12 @@ const Skills = () => {
     };
 
     const opts = { passive: true, once: true };
-    window.addEventListener('pointermove', unlockAudio, opts);
     window.addEventListener('pointerdown', unlockAudio, opts);
     window.addEventListener('touchstart', unlockAudio, opts);
-    window.addEventListener('wheel', unlockAudio, opts);
     window.addEventListener('keydown', unlockAudio, opts);
     return () => {
-      window.removeEventListener('pointermove', unlockAudio);
       window.removeEventListener('pointerdown', unlockAudio);
       window.removeEventListener('touchstart', unlockAudio);
-      window.removeEventListener('wheel', unlockAudio);
       window.removeEventListener('keydown', unlockAudio);
     };
   }, []);
@@ -148,10 +144,7 @@ const Skills = () => {
   return (
     <section id="skills" className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden section-shell" style={{ background: 'var(--bg-primary)' }}>
       <div className="relative z-10 max-w-7xl mx-auto space-y-8">
-        <div data-aos="fade-up" className="flex items-center gap-4">
-          <h3 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>Technical Arsenal</h3>
-          <div className="h-[1px] flex-1 opacity-60" style={{ background: 'var(--border-color)' }}></div>
-        </div>
+       
         <div data-aos="fade-up" className="p-2 sm:p-4 md:p-6">
           <h4 className="text-center text-2xl md:text-4xl font-extrabold tracking-tight mb-8" style={{ color: 'var(--text-primary)' }}>
             Tools In My Arsenal
@@ -163,6 +156,9 @@ const Skills = () => {
                   type="button"
                   className="tool-orb piano-key"
                   onMouseEnter={() => { void playPianoNote(tool.note); }}
+                  onPointerEnter={() => { void playPianoNote(tool.note); }}
+                  onPointerDown={() => { void playPianoNote(tool.note); }}
+                  onTouchStart={() => { void playPianoNote(tool.note); }}
                   onFocus={() => void playPianoNote(tool.note)}
                   style={{ '--tool-color': tool.color }}
                   title={tool.name}
