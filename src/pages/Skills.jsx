@@ -57,11 +57,11 @@ const Skills = () => {
   React.useEffect(() => {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
     if (!AudioContextClass) return undefined;
-    if (!audioCtxRef.current) {
-      audioCtxRef.current = new AudioContextClass();
-    }
 
     const unlockAudio = async () => {
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new AudioContextClass();
+      }
       const ctx = audioCtxRef.current;
       if (!ctx || ctx.state === 'running') return;
       try {
@@ -159,6 +159,7 @@ const Skills = () => {
                   onPointerEnter={() => { void playPianoNote(tool.note); }}
                   onPointerDown={() => { void playPianoNote(tool.note); }}
                   onTouchStart={() => { void playPianoNote(tool.note); }}
+                  onClick={() => { void playPianoNote(tool.note); }}
                   onFocus={() => void playPianoNote(tool.note)}
                   style={{ '--tool-color': tool.color }}
                   title={tool.name}

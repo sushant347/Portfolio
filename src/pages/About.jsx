@@ -72,12 +72,12 @@ const About = () => {
             </div>
 
             <h2
-              className="text-4xl md:text-5xl font-bold leading-tight"
+              className="text-4xl md:text-5xl font-bold leading-[1.3] pb-2"
               style={{ color: 'var(--text-primary)' }}
             >
               Building clean products
               <span
-                className="block text-transparent bg-clip-text"
+                className="inline-block text-transparent bg-clip-text pb-2"
                 style={{
                   backgroundImage: 'linear-gradient(to right, var(--accent-color), var(--accent-hover))',
                 }}
