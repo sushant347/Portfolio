@@ -57,7 +57,7 @@ const Contact = () => {
   return (
     <section 
       id="contact" 
-      className="min-h-screen py-20 sm:py-24 px-4 sm:px-6 relative overflow-hidden" 
+      className="min-h-screen py-20 sm:py-24 px-4 sm:px-6 relative overflow-hidden section-shell" 
       style={{ background: 'var(--bg-primary)' }}
     >
       

@@ -122,7 +122,7 @@ const Gallery = () => {
   return (
     <section
       id="gallery"
-      className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden"
+      className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden section-shell"
       style={{ background: 'var(--bg-primary)' }}
     >
       {/* Background ambience */}
@@ -217,6 +217,8 @@ const Gallery = () => {
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
+                    width={1280}
+                    height={720}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Bottom fade */}

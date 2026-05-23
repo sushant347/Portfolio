@@ -37,7 +37,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden"
+      className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden section-shell"
       style={{ background: 'var(--bg-primary)' }}
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -65,6 +65,10 @@ const About = () => {
               <img
                 src={mePhoto}
                 alt="Sushant Gautam"
+                loading="lazy"
+                decoding="async"
+                width={760}
+                height={960}
                 className="w-full h-[340px] sm:h-[460px] object-cover object-top"
               />
               <div

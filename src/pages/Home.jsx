@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Github, Instagram, Mail, Phone, ExternalLink, Download } from 'lucide-react';
-import { jsPDF } from 'jspdf';
 import mePhoto from '../components/images/MePhotoo.png';
 
 const roles = [
@@ -53,7 +52,8 @@ const Home = () => {
     }
   };
 
-  const handleDownloadCV = () => {
+  const handleDownloadCV = async () => {
+    const { jsPDF } = await import('jspdf');
     const doc = new jsPDF({ unit: 'mm', format: 'a4' });
     const pageHeight = 297;
     const left = 16;
@@ -227,7 +227,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden lg:h-screen"
+      className="relative overflow-hidden lg:h-screen section-shell"
       style={{ background: 'var(--bg-primary)' }}
     >
       {/* ── BACKGROUND AMBIENCE ── */}
@@ -258,8 +258,8 @@ const Home = () => {
               loading="eager"
               fetchPriority="high"
               decoding="async"
-              width="580"
-              height="820"
+              width={580}
+              height={820}
               className="relative z-10 w-auto max-w-[210px] sm:max-w-[300px] lg:max-w-none lg:h-[98%] object-contain object-bottom transition-transform duration-500 hover:scale-[1.02] select-none lg:-translate-y-8"
               style={{
                 maskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
@@ -365,6 +365,8 @@ const Home = () => {
                   <a
                     key={s.label}
                     href={s.url}
+                    target={s.url.startsWith('http') ? '_blank' : undefined}
+                    rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
                     aria-label={s.label}
                     className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent-color)]"
                     style={{

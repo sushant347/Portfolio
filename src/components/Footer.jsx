@@ -6,14 +6,13 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Github, url: 'https://github.com/sushant347', label: 'GitHub' },
-    { icon: Instagram, url: 'https://www.instagram.com/sushantgautam258/', label: 'LinkedIn' },
+    { icon: Instagram, url: 'https://www.instagram.com/sushantgautam258/', label: 'Instagram' },
     { icon: Mail, url: 'mailto:sushantgautam98677@gmail.com', label: 'Email' },
   ];
 
   const navLinks = [
     { name: 'Home', path: '#home' },
     { name: 'About', path: '#about' },
-    { name: 'Services', path: '#services' },
     { name: 'Work', path: '#gallery' },
     { name: 'Contact', path: '#contact' },
   ];

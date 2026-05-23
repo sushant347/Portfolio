@@ -11,7 +11,11 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
       setScrolled(window.scrollY > 20);
 
       const sections = ['home', 'about', 'gallery', 'contact'];
@@ -26,9 +30,12 @@ const Navbar = () => {
       if (current) {
         setActiveSection(current);
       }
+        ticking = false;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
