@@ -368,12 +368,7 @@ const Home = () => {
                     target={s.url.startsWith('http') ? '_blank' : undefined}
                     rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
                     aria-label={s.label}
-                    className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:-translate-y-1 hover:text-[var(--accent-color)]"
-                    style={{
-                      color: 'var(--text-tertiary)',
-                      border: '1px solid var(--border-color)',
-                      background: 'var(--bg-tertiary)',
-                    }}
+                    className="social-icon-btn w-10 h-10 flex items-center justify-center rounded-full duration-300 hover:-translate-y-1"
                   >
                     <Icon size={18} />
                   </a>

@@ -1,35 +1,7 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone, MapPin, ArrowRight, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate sending
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
-  };
-
   const contactInfo = [
     {
       icon: Mail,
@@ -46,11 +18,39 @@ const Contact = () => {
       label: 'Call me'
     },
     {
+      icon: MessageCircle,
+      title: 'WhatsApp',
+      content: '+977 9869465432',
+      link: 'https://wa.me/9779869465432',
+      label: 'Chat on WhatsApp'
+    },
+    {
       icon: MapPin,
       title: 'Location',
       content: 'Kathmandu, Nepal',
       link: 'https://maps.app.goo.gl/hapy4M7LQySgM9yaA',
       label: 'View on map'
+    },
+  ];
+
+  const primaryActions = [
+    {
+      icon: Mail,
+      title: 'Email Me',
+      detail: 'sushant98677@gmail.com',
+      link: 'mailto:sushant98677@gmail.com',
+    },
+    {
+      icon: Phone,
+      title: 'Call Me',
+      detail: '+977 9869465432',
+      link: 'tel:+9779869465432',
+    },
+    {
+      icon: MessageCircle,
+      title: 'WhatsApp',
+      detail: '+977 9869465432',
+      link: 'https://wa.me/9779869465432',
     },
   ];
 
@@ -103,7 +103,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           
-          {/* LEFT: Contact Form */}
+          {/* LEFT: Contact Actions */}
           <div 
             data-aos="fade-right"
             className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border relative overflow-hidden group"
@@ -118,95 +118,46 @@ const Contact = () => {
               className="absolute top-0 left-0 w-full h-1 opacity-50"
               style={{ background: 'linear-gradient(to right, var(--accent-color), transparent)' }}
             ></div>
-
-            {submitStatus === 'success' && (
-              <div 
-                className="mb-6 p-4 rounded-xl flex items-center gap-3 animate-fade-in"
-                style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)' }}
-              >
-                <CheckCircle size={20} className="text-green-500" />
-                <p className="font-medium text-green-500">Message sent successfully!</p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-1.5 sm:space-y-2">
-                  <label htmlFor="name" className="text-xs sm:text-sm font-semibold ml-1" style={{ color: 'var(--text-primary)' }}>Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your Name"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-lg sm:rounded-xl text-sm sm:text-base transition-all focus:scale-[1.01] outline-none border focus:border-[var(--accent-color)]"
-                    style={{
-                      background: 'var(--bg-tertiary)',
-                      borderColor: 'transparent',
-                      color: 'var(--text-primary)'
-                    }}
-                  />
-                </div>
-                <div className="space-y-1.5 sm:space-y-2">
-                  <label htmlFor="email" className="text-xs sm:text-sm font-semibold ml-1" style={{ color: 'var(--text-primary)' }}>Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="youremail@example.com"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-lg sm:rounded-xl text-sm sm:text-base transition-all focus:scale-[1.01] outline-none border focus:border-[var(--accent-color)]"
-                    style={{
-                      background: 'var(--bg-tertiary)',
-                      borderColor: 'transparent',
-                      color: 'var(--text-primary)'
-                    }}
-                  />
-                </div>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Start a Project</h3>
+                <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  Share a brief about your idea, timeline, and goals. I respond fast and keep communication clear from day one.
+                </p>
               </div>
 
-              <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="message" className="text-xs sm:text-sm font-semibold ml-1" style={{ color: 'var(--text-primary)' }}>Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="4"
-                  placeholder="Tell me about your project goals..."
-                  className="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-lg sm:rounded-xl text-sm sm:text-base resize-none transition-all focus:scale-[1.01] outline-none border focus:border-[var(--accent-color)]"
-                  style={{
-                    background: 'var(--bg-tertiary)',
-                    borderColor: 'transparent',
-                    color: 'var(--text-primary)'
-                  }}
-                ></textarea>
+              <div className="grid gap-3">
+                {primaryActions.map((action) => {
+                  const Icon = action.icon;
+                  return (
+                    <a
+                      key={action.title}
+                      href={action.link}
+                      className="contact-card flex items-center justify-between gap-4 px-5 py-4 rounded-xl border transition-all hover:-translate-y-0.5"
+                      style={{ borderColor: 'var(--border-color)', background: 'var(--bg-tertiary)' }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="contact-icon-wrap w-10 h-10 rounded-full flex items-center justify-center">
+                          <Icon size={18} style={{ color: 'var(--accent-color)' }} />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{action.title}</p>
+                          <p className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>{action.detail}</p>
+                        </div>
+                      </div>
+                      <ArrowRight size={16} style={{ color: 'var(--accent-color)' }} />
+                    </a>
+                  );
+                })}
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base text-white transition-all hover:scale-[1.02] hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
-                style={{ background: 'var(--accent-color)' }}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </button>
-            </form>
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <span className="text-xs sm:text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Response time:</span>
+                <span className="text-xs sm:text-sm font-bold" style={{ color: 'var(--text-primary)' }}>Within 24 hours</span>
+                <span className="text-xs sm:text-sm font-medium" style={{ color: 'var(--text-tertiary)' }}>Timezone:</span>
+                <span className="text-xs sm:text-sm font-bold" style={{ color: 'var(--text-primary)' }}>GMT +5:45 (Nepal)</span>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT: Contact Info & Status */}
@@ -220,15 +171,14 @@ const Contact = () => {
                   <a
                     key={index}
                     href={info.link}
-                    className="group flex items-center gap-3 sm:gap-6 p-4 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    className="contact-card group flex items-center gap-3 sm:gap-6 p-4 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     style={{
                       background: 'var(--card-bg)',
                       borderColor: 'var(--border-color)'
                     }}
                   >
                     <div 
-                      className="w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                      style={{ background: 'var(--bg-tertiary)' }}
+                      className="contact-icon-wrap w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0"
                     >
                       <Icon size={20} className="sm:w-6 sm:h-6" style={{ color: 'var(--accent-color)' }} />
                     </div>
