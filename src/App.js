@@ -9,6 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const About = lazy(() => import('./pages/About'));
+const Skills = lazy(() => import('./pages/Skills'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
 
@@ -65,6 +66,9 @@ function App() {
           <Home />
           <Suspense fallback={<section className="section-shell" aria-hidden="true" />}>
             <About />
+          </Suspense>
+          <Suspense fallback={<section className="section-shell" aria-hidden="true" />}>
+            <Skills />
           </Suspense>
           <Suspense fallback={<section className="section-shell" aria-hidden="true" />}>
             <Gallery />
