@@ -53,6 +53,50 @@ const About = () => {
   const audioCtxRef = useRef(null);
   const lastPlayedRef = useRef(0);
 
+  React.useEffect(() => {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return undefined;
+
+    if (!audioCtxRef.current) {
+      audioCtxRef.current = new AudioContextClass();
+    }
+
+    const unlockAudio = async () => {
+      const ctx = audioCtxRef.current;
+      if (!ctx || ctx.state === 'running') return;
+      try {
+        await ctx.resume();
+      } catch {
+        return;
+      }
+
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.0001, now);
+      osc.frequency.setValueAtTime(440, now);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.01);
+    };
+
+    const opts = { passive: true, once: true };
+    window.addEventListener('pointermove', unlockAudio, opts);
+    window.addEventListener('pointerdown', unlockAudio, opts);
+    window.addEventListener('touchstart', unlockAudio, opts);
+    window.addEventListener('wheel', unlockAudio, opts);
+    window.addEventListener('keydown', unlockAudio, opts);
+
+    return () => {
+      window.removeEventListener('pointermove', unlockAudio);
+      window.removeEventListener('pointerdown', unlockAudio);
+      window.removeEventListener('touchstart', unlockAudio);
+      window.removeEventListener('wheel', unlockAudio);
+      window.removeEventListener('keydown', unlockAudio);
+    };
+  }, []);
+
   const playPianoNote = useCallback(async (frequency) => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
