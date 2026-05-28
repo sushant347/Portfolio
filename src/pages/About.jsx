@@ -37,7 +37,7 @@ const About = () => {
                 decoding="async"
                 width={760}
                 height={960}
-                className="w-full h-[340px] sm:h-[460px] object-cover object-top"
+                className="w-full h-[340px] sm:h-[490px] object-cover object-top"
               />
               <div
                 className="absolute inset-0"
