@@ -260,7 +260,7 @@ const Home = () => {
               decoding="async"
               width={580}
               height={820}
-              className="relative z-10 w-auto max-w-[210px] sm:max-w-[300px] lg:max-w-none lg:h-[98%] object-contain object-bottom transition-transform duration-500 hover:scale-[1.02] select-none lg:-translate-y-8"
+              className="relative z-10 w-auto max-w-[210px] sm:max-w-[300px] lg:max-w-none lg:h-[98%] object-contain object-bottom transition-transform duration-500 hover:scale-[1.02] select-none lg:-translate-y-3"
               style={{
                 maskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
