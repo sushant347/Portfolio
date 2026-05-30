@@ -98,9 +98,7 @@ const Navbar = () => {
               style={{ color: 'var(--text-primary)' }}
             >
               Sushant 
-              <span 
-                className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-blue-600 ml-1.5"
-              >
+              <span className="ml-1.5" style={{ color: 'var(--accent-color)' }}>
                 Gautam
               </span>
             </span>
@@ -122,7 +120,7 @@ const Navbar = () => {
                   after:left-0
                   after:bottom-0
                   after:h-[2px]
-                  after:bg-gradient-to-r after:from-blue-600 after:to-cyan-500
+                  after:bg-[var(--accent-color)]
                   after:transition-all after:duration-300
                   hover:after:w-full
                 `}

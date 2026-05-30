@@ -8,24 +8,9 @@ const About = () => {
       className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden section-shell"
       style={{ background: 'var(--bg-primary)' }}
     >
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute top-[-12%] right-[-8%] w-[340px] md:w-[520px] h-[340px] md:h-[520px] rounded-full blur-[120px] opacity-20"
-          style={{ background: 'var(--accent-color)' }}
-        ></div>
-        <div
-          className="absolute bottom-[-15%] left-[-10%] w-[320px] md:w-[450px] h-[320px] md:h-[450px] rounded-full blur-[100px] opacity-15"
-          style={{ background: 'var(--text-primary)' }}
-        ></div>
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto space-y-16">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div data-aos="fade-right" className="relative">
-            <div
-              className="absolute -inset-4 rounded-3xl blur-3xl opacity-25"
-              style={{ background: 'var(--accent-color)' }}
-            ></div>
             <div
               className="relative rounded-3xl overflow-hidden border"
               style={{ borderColor: 'var(--border-color)' }}
@@ -76,12 +61,7 @@ const About = () => {
               style={{ color: 'var(--text-primary)' }}
             >
               Building clean products
-              <span
-                className="inline-block text-transparent bg-clip-text pb-2"
-                style={{
-                  backgroundImage: 'linear-gradient(to right, var(--accent-color), var(--accent-hover))',
-                }}
-              >
+              <span className="inline-block pb-2 ml-2" style={{ color: 'var(--accent-color)' }}>
                 with practical engineering
               </span>
             </h2>

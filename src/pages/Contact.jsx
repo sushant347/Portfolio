@@ -60,19 +60,6 @@ const Contact = () => {
       className="min-h-screen py-20 sm:py-24 px-4 sm:px-6 relative overflow-hidden section-shell" 
       style={{ background: 'var(--bg-primary)' }}
     >
-      
-      {/* BACKGROUND AMBIENCE (Static & Consistent) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-        <div 
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
-          style={{ background: 'var(--accent-color)' }}
-        ></div>
-        <div 
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[100px] opacity-15"
-          style={{ background: 'var(--text-primary)' }}
-        ></div>
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* HEADER */}
@@ -91,7 +78,7 @@ const Contact = () => {
             className="text-4xl md:text-6xl font-bold mb-6"
             style={{ color: 'var(--text-primary)' }}
           >
-            Let's <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, var(--accent-color), var(--accent-hover))' }}>Work Together</span>
+            Let's <span style={{ color: 'var(--accent-color)' }}>Work Together</span>
           </h2>
           <p 
             className="max-w-xl mx-auto text-lg leading-relaxed"
@@ -113,10 +100,9 @@ const Contact = () => {
               boxShadow: '0 10px 40px -10px var(--shadow-color)'
             }}
           >
-            {/* Form Glow Effect */}
             <div 
               className="absolute top-0 left-0 w-full h-1 opacity-50"
-              style={{ background: 'linear-gradient(to right, var(--accent-color), transparent)' }}
+              style={{ background: 'var(--accent-color)' }}
             ></div>
             <div className="space-y-6">
               <div>
@@ -207,7 +193,7 @@ const Contact = () => {
                   <h3 className="text-lg sm:text-xl font-bold mb-1.5 sm:mb-2" style={{ color: 'var(--text-primary)' }}>Current Status</h3>
                   <p className="text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>I'm currently available for freelance projects and consulting.</p>
                 </div>
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e] flex-shrink-0 mt-1"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full flex-shrink-0 mt-1" style={{ background: 'var(--accent-color)' }}></div>
               </div>
               
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t" style={{ borderColor: 'var(--border-color)' }}>

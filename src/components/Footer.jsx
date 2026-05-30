@@ -12,29 +12,6 @@ const Footer = () => {
     { icon: MessageCircle, url: 'https://wa.me/9779869465432', label: 'WhatsApp' },
   ];
 
-  const navLinks = [
-    { name: 'Home', path: '#home' },
-    { name: 'About', path: '#about' },
-    { name: 'Work', path: '#gallery' },
-    { name: 'Contact', path: '#contact' },
-  ];
-
-  const handleNavClick = (e, path) => {
-    e.preventDefault();
-    const sectionId = path.substring(1);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <footer style={{ background: 'var(--bg-primary)', borderTop: '1px solid var(--border-color)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">

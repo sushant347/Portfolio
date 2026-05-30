@@ -230,18 +230,6 @@ const Home = () => {
       className="relative overflow-hidden lg:h-screen section-shell"
       style={{ background: 'var(--bg-primary)' }}
     >
-      {/* ── BACKGROUND AMBIENCE ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20"
-          style={{ background: 'var(--accent-color)' }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-15"
-          style={{ background: 'var(--text-primary)' }}
-        />
-      </div>
-
       {/* ── MAIN CONTAINER ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 lg:h-full">
         <div className="flex flex-col lg:flex-row lg:h-full">
@@ -296,8 +284,8 @@ const Home = () => {
                 Sushant
               </h1>
               <h1
-                className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] text-transparent bg-clip-text"
-                style={{ backgroundImage: 'linear-gradient(to right, var(--accent-color), var(--accent-hover))' }}
+                className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05]"
+                style={{ color: 'var(--accent-color)' }}
               >
                 Gautam
               </h1>
@@ -339,7 +327,7 @@ const Home = () => {
               <button
                 onClick={(e) => handleNavClick(e, '#contact')}
                 className="flex items-center justify-center gap-2 px-7 py-3 sm:px-8 sm:py-3.5 rounded-full font-bold text-white transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95 w-full sm:w-auto"
-                style={{ background: 'var(--accent-color)' }}
+                style={{ background: 'var(--accent-color)', boxShadow: '0 12px 26px -18px var(--shadow-color)' }}
               >
                 Contact Me <ExternalLink size={16} />
               </button>

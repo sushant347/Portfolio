@@ -14,7 +14,6 @@ const Services = () => {
       github: 'https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-',
       live: 'https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html',
       color: 'text-blue-500',
-      gradient: 'from-blue-500 to-cyan-500',
       delay: 0,
     },
     {
@@ -25,7 +24,6 @@ const Services = () => {
       github: 'https://github.com/sushant347/Advanced-Python',
       live: 'https://github.com/sushant347/Advanced-Python',
       color: 'text-yellow-500',
-      gradient: 'from-yellow-500 to-orange-500',
       delay: 100,
     },
     {
@@ -36,7 +34,6 @@ const Services = () => {
       github: 'https://github.com/sushant347/CineScope-Intelligence',
       live: 'https://github.com/sushant347/CineScope-Intelligence',
       color: 'text-indigo-500',
-      gradient: 'from-indigo-500 to-blue-500',
       delay: 200,
     },
     {
@@ -47,7 +44,6 @@ const Services = () => {
       github: 'https://github.com/sushant347/Space-Invadar-Game',
       live: 'https://github.com/sushant347/Space-Invadar-Game',
       color: 'text-emerald-500',
-      gradient: 'from-emerald-500 to-teal-500',
       delay: 300,
     },
     {
@@ -58,7 +54,6 @@ const Services = () => {
       github: 'https://github.com/sushant347/Snake-Game',
       live: 'https://github.com/sushant347/Snake-Game',
       color: 'text-rose-500',
-      gradient: 'from-rose-500 to-red-500',
       delay: 400,
     },
   ];
@@ -96,19 +91,6 @@ const Services = () => {
       className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden"
       style={{ background: 'var(--bg-primary)' }}
     >
-
-      {/* BACKGROUND AMBIENCE */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
-          style={{ background: 'var(--accent-color)' }}
-        ></div>
-        <div
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[120px] opacity-15"
-          style={{ background: 'var(--text-primary)' }}
-        ></div>
-      </div>
-
       <div className="relative max-w-7xl mx-auto">
 
         {/* HEADER */}
@@ -127,7 +109,7 @@ const Services = () => {
             className="text-4xl md:text-6xl font-bold mb-6"
             style={{ color: 'var(--text-primary)' }}
           >
-            My <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, var(--accent-color), var(--accent-hover))' }}>Projects</span>
+            My <span style={{ color: 'var(--accent-color)' }}>Projects</span>
           </h2>
           <p
             className="max-w-2xl mx-auto text-lg leading-relaxed"
@@ -153,12 +135,7 @@ const Services = () => {
                   boxShadow: '0 10px 40px -10px var(--shadow-color)'
                 }}
               >
-                {/* Top glowing gradient line — always visible */}
-                <div className={`absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r ${project.gradient}`} />
-                <div className={`absolute top-0 left-0 w-full h-[10px] bg-gradient-to-r ${project.gradient} opacity-30 blur-[5px]`} />
-
-                {/* Hover glow */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl bg-gradient-to-br ${project.gradient}`}></div>
+                <div className="absolute top-0 left-0 w-full h-[3px]" style={{ background: 'var(--accent-color)' }} />
 
                 {/* Icon */}
                 <div
@@ -211,7 +188,8 @@ const Services = () => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95 text-white bg-gradient-to-r ${project.gradient}`}
+                    className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95 text-white"
+                    style={{ background: 'var(--accent-color)' }}
                   >
                     <ExternalLink size={14} /> Live Demo
                   </a>

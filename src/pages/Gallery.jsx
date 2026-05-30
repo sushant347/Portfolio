@@ -21,7 +21,6 @@ const projects = [
     github: 'https://github.com/sushant347/CineMatch',
     hideLiveDemo: true,
     image: cinematchImg,
-    gradient: 'from-violet-500 to-indigo-400',
   },
   {
     title: 'ElectroNest',
@@ -33,7 +32,6 @@ const projects = [
     github: 'https://github.com/sushant347/ElectroNest',
     live: 'https://electro-nest.vercel.app',
     image: electronestImg,
-    gradient: 'from-sky-500 to-indigo-400',
   },
   {
     title: 'CineScope Intelligence',
@@ -45,7 +43,6 @@ const projects = [
     github: 'https://github.com/sushant347/CineScope-Intelligence',
     hideLiveDemo: true,
     image: cinescopeImg,
-    gradient: 'from-indigo-500 to-blue-400',
   },
   {
     title: 'Nepali News Summarizer',
@@ -57,7 +54,6 @@ const projects = [
     github: 'https://github.com/sushant347/Nepali-News-Summarizer',
     hideLiveDemo: true,
     image: nepaliNewsImg,
-    gradient: 'from-orange-500 to-amber-400',
   },
   {
     title: 'Kharchi',
@@ -69,7 +65,6 @@ const projects = [
     github: 'https://github.com/sushant347/Smart-Expense-Analyzer-with-ML-NLP-Django-React-',
     hideLiveDemo: true,
     image: kharchiImg,
-    gradient: 'from-rose-500 to-orange-400',
   },
   {
     title: 'UrbanWave E-commerce',
@@ -81,7 +76,6 @@ const projects = [
     github: 'https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-',
     live: 'https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html',
     image: urbanwaveImg,
-    gradient: 'from-blue-500 to-cyan-400',
   },
   {
     title: 'Space Invader Game',
@@ -93,7 +87,6 @@ const projects = [
     github: 'https://github.com/sushant347/Space-Invadar-Game',
     hideLiveDemo: true,
     image: spaceInvaderImg,
-    gradient: 'from-cyan-500 to-blue-400',
   },
   {
     title: 'Snake Game',
@@ -105,7 +98,6 @@ const projects = [
     github: 'https://github.com/sushant347/Snake-Game',
     hideLiveDemo: true,
     image: snakeGameImg,
-    gradient: 'from-emerald-500 to-green-400',
   },
 ];
 
@@ -125,18 +117,6 @@ const Gallery = () => {
       className="relative min-h-screen py-20 sm:py-24 px-4 sm:px-6 overflow-hidden section-shell"
       style={{ background: 'var(--bg-primary)' }}
     >
-      {/* Background ambience */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute top-[-12%] right-[-8%] w-[340px] md:w-[520px] h-[340px] md:h-[520px] rounded-full blur-[120px] opacity-20"
-          style={{ background: 'var(--accent-color)' }}
-        />
-        <div
-          className="absolute bottom-[-15%] left-[-10%] w-[320px] md:w-[460px] h-[320px] md:h-[460px] rounded-full blur-[100px] opacity-15"
-          style={{ background: 'var(--text-primary)' }}
-        />
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto">
 
         {/* Header */}
@@ -153,10 +133,7 @@ const Gallery = () => {
           </span>
           <h2 className="mt-5 text-4xl md:text-6xl font-bold" style={{ color: 'var(--text-primary)' }}>
             Featured{' '}
-            <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(to right, var(--accent-color), var(--accent-hover))' }}
-            >
+            <span style={{ color: 'var(--accent-color)' }}>
               Work
             </span>
           </h2>
@@ -204,11 +181,7 @@ const Gallery = () => {
                   boxShadow: '0 12px 40px -16px var(--shadow-color)',
                 }}
               >
-                {/* Top accent line */}
-                <div className={`absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r ${project.gradient} z-10`} />
-                <div className={`absolute top-0 left-0 w-full h-[10px] bg-gradient-to-r ${project.gradient} opacity-25 blur-[5px] z-10`} />
-                {/* Hover glow — pointer-events-none keeps buttons clickable */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500 bg-gradient-to-br ${project.gradient} pointer-events-none z-0`} />
+                <div className="absolute top-0 left-0 w-full h-[3px] z-10" style={{ background: 'var(--accent-color)' }} />
 
                 {/* Banner */}
                 <div className="relative overflow-hidden h-44 sm:h-48 shrink-0">
@@ -269,7 +242,8 @@ const Gallery = () => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`relative z-10 flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:brightness-110 bg-gradient-to-r ${project.gradient}`}
+                        className="relative z-10 flex-1 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.03] hover:brightness-110"
+                        style={{ background: 'var(--accent-color)' }}
                       >
                         <ExternalLink size={15} /> Live Demo
                       </a>
