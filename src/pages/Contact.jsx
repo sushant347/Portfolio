@@ -193,7 +193,7 @@ const Contact = () => {
                   <h3 className="text-lg sm:text-xl font-bold mb-1.5 sm:mb-2" style={{ color: 'var(--text-primary)' }}>Current Status</h3>
                   <p className="text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>I'm currently available for freelance projects and consulting.</p>
                 </div>
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full flex-shrink-0 mt-1" style={{ background: 'var(--accent-color)' }}></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e] flex-shrink-0 mt-1"></div>
               </div>
               
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t" style={{ borderColor: 'var(--border-color)' }}>
