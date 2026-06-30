@@ -73,8 +73,8 @@ const projects = [
     description:
       'E-commerce frontend with product listing, shopping cart flow, and checkout simulation built using vanilla web technologies.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-',
-    live: 'https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html',
+    github: 'https://github.com/sushant347/Html-CSS-First-Project',
+    live: 'https://sushant347.github.io/Html-CSS-First-Project/index.html',
     image: urbanwaveImg,
   },
   {
