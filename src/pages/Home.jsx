@@ -186,8 +186,8 @@ const Home = () => {
     addParagraph('UrbanWave E-commerce', { weight: 'bold', color: [31, 41, 55] });
     addBullet('E-commerce frontend with product listing, cart flow, and checkout simulation.');
     addBullet('Stack: HTML, CSS, JavaScript');
-    addLinkLine('GitHub', 'https://github.com/sushant347/Minor-demo-Project-HTML_CSS_JS-');
-    addLinkLine('Live', 'https://sushant347.github.io/Minor-demo-Project-HTML_CSS_JS-/index.html');
+    addLinkLine('GitHub', 'https://github.com/sushant347/Html-CSS-First-Project');
+    addLinkLine('Live', 'https://sushant347.github.io/Html-CSS-First-Project/');
 
     addParagraph('ElectroNest', { weight: 'bold', color: [31, 41, 55] });
     addBullet('Electronics e-commerce platform with product listing, cart management, and checkout workflow.');
