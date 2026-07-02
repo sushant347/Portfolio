@@ -83,13 +83,13 @@ const PATH_DESKTOP =
 const PATH_MOBILE =
   "M110,90 C110,165 190,165 190,240 C190,315 110,315 110,390 C110,465 190,465 190,540 C190,615 110,615 110,690 C110,765 190,765 190,840";
 
-function FlowPreview({ stage }) {
+function FlowPreview({ stage, inline = false }) {
   if (!stage) return null;
 
   const Icon = stage.icon;
 
   return (
-    <div className="svc-flow-preview" aria-live="polite">
+    <div className={inline ? "svc-flow-preview svc-flow-preview-inline" : "svc-flow-preview"} aria-live="polite">
       <span className="svc-flow-preview-icon">
         <Icon size={30} style={{ color: stage.iconColor || "var(--accent-color)" }} />
       </span>
@@ -109,7 +109,7 @@ function FlowPreview({ stage }) {
   );
 }
 
-function FlowDiagram({ activeIndex, setActiveIndex, variant }) {
+function FlowDiagram({ activeIndex, setActiveIndex, variant, showPreview = true }) {
   const isMobile = variant === "mobile";
   const width = isMobile ? 300 : 1200;
   const height = isMobile ? 900 : 220;
@@ -189,7 +189,7 @@ function FlowDiagram({ activeIndex, setActiveIndex, variant }) {
         );
       })}
 
-      <FlowPreview stage={activeStage} />
+      {showPreview ? <FlowPreview stage={activeStage} /> : null}
     </div>
   );
 }
@@ -300,6 +300,16 @@ export default function Services() {
           border-color: var(--accent-color);
           pointer-events: none;
           transform: translate(-50%, -50%);
+        }
+
+        .svc-flow-preview-inline {
+          position: static;
+          left: auto;
+          top: auto;
+          width: 100%;
+          margin-top: 1rem;
+          transform: none;
+          pointer-events: auto;
         }
 
         .svc-flow-preview-icon {
@@ -580,10 +590,25 @@ export default function Services() {
             margin: 0 auto 2.1rem;
           }
 
-          .svc-flow-preview {
-            top: 48%;
-            align-items: flex-start;
-            width: min(290px, 94%);
+          .flow-mobile .flow-node {
+            gap: 0.42rem;
+          }
+
+          .flow-mobile .flow-node-icon {
+            width: 60px;
+            height: 60px;
+          }
+
+          .flow-mobile .flow-node-label {
+            max-width: 110px;
+            white-space: normal;
+            text-align: center;
+            line-height: 1.1;
+            font-size: 0.7rem;
+            padding: 0.18rem 0.5rem;
+            border-radius: 999px;
+            background: var(--bg-primary);
+            box-shadow: 0 6px 16px -14px var(--shadow-color);
           }
 
           .svc-cta {
