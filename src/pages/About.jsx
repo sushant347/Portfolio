@@ -62,7 +62,7 @@ const About = () => {
             >
               Building clean products
               <span className="inline-block pb-2 ml-2" style={{ color: 'var(--accent-color)' }}>
-                with practical engineering
+                with full stack and AI focus
               </span>
             </h2>
 
@@ -75,10 +75,13 @@ const About = () => {
               }}
             >
               <p className="text-base md:text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                I am Sushant Gautam, a Computer Engineering student and full stack developer who builds reliable, user-focused software. My work combines clean frontend experiences, scalable backend architecture, and practical machine learning where it creates clear product value.
+                I am Sushant Gautam, a Computer Engineering student and aspiring full stack developer and AI engineer. My work combines clean frontend experiences, scalable backend architecture, and practical machine learning where it creates clear product value.
               </p>
               <p className="text-base md:text-lg leading-relaxed mt-4" style={{ color: 'var(--text-secondary)' }}>
-                I focus on end-to-end delivery: understanding business requirements, translating them into maintainable systems, and shipping polished results. I am especially interested in AI-powered web applications, recommendation systems, and NLP-driven products.
+                I focus on end-to-end delivery: understanding requirements, translating them into maintainable systems, and shipping polished results. I am especially interested in AI-powered web applications, recommendation systems, and NLP-driven products.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed mt-4" style={{ color: 'var(--text-secondary)' }}>
+                If you are looking for a React developer, Django developer, or an engineer who wants to build full stack and AI projects from scratch, I focus on strong UI, practical deployment workflows, and real problem solving.
               </p>
             </div>
           </div>

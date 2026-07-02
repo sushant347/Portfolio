@@ -18,7 +18,7 @@ const Navbar = () => {
       window.requestAnimationFrame(() => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'about', 'skills', 'gallery', 'contact'];
+      const sections = ['home', 'about', 'services', 'skills', 'gallery', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -42,6 +42,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '#home' },
     { name: 'About', path: '#about' },
+    { name: 'Services', path: '#services' },
     { name: 'Skills', path: '#skills' },
     { name: 'Work', path: '#gallery' },
     { name: 'Contact', path: '#contact' },

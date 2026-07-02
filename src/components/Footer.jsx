@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="space-y-3 sm:space-y-4">
             <h3 className="font-bold text-base sm:text-lg" style={{ color: 'var(--text-primary)' }}>Sushant Gautam</h3>
             <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Computer engineering student building high-performance web apps with React, Django & AI.
+              Computer engineering student building full stack web apps and AI projects with React, Django, and machine learning.
 
 
             </p>
@@ -57,11 +57,6 @@ const Footer = () => {
           <div className="flex flex-col items-center gap-2 text-center">
             <p className="text-xs sm:text-sm" style={{ color: 'var(--text-tertiary)' }}>
               © {currentYear} Sushant Gautam. All rights reserved.
-            </p>
-            <p className="text-[11px] sm:text-xs flex items-center gap-2" style={{ color: 'var(--text-tertiary)' }}>
-              <span>Built with</span>
-              <Heart size={12} style={{ color: 'var(--accent-color)' }} fill="currentColor" />
-              <span>using React & Tailwind CSS</span>
             </p>
           </div>
         </div>

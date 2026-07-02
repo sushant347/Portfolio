@@ -4,8 +4,8 @@ import mePhoto from '../components/images/MePhotoo.png';
 
 const roles = [
   'Full Stack Developer',
-  'UI/UX Designer',
-  'Web Developer',
+  'AI Engineer',
+  'Machine Learning Builder',
   'Computer Engineer',
 ];
 
@@ -266,12 +266,12 @@ const Home = () => {
               data-aos-delay="100"
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase"
               style={{
-                background: 'var(--bg-tertiary)',
-                color: 'var(--accent-color)',
-                border: '1px solid var(--border-color)',
+                background: 'rgba(34, 197, 94, 0.12)',
+                color: '#16a34a',
+                border: '1px solid rgba(34, 197, 94, 0.28)',
               }}
             >
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-color)' }} />
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22c55e' }} />
               Available for Work
             </div>
 
@@ -281,13 +281,7 @@ const Home = () => {
                 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05]"
                 style={{ color: 'var(--text-primary)' }}
               >
-                Sushant
-              </h1>
-              <h1
-                className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05]"
-                style={{ color: 'var(--accent-color)' }}
-              >
-                Gautam
+                Sushant <span style={{ color: 'var(--accent-color)' }}>Gautam</span>
               </h1>
             </div>
 
@@ -317,11 +311,19 @@ const Home = () => {
               I build user-focused web applications with React, Django, and practical AI integration.
               I enjoy turning ideas into reliable, maintainable, and polished digital products.
             </p>
+            <p
+              data-aos="fade-left"
+              data-aos-delay="400"
+              className="text-sm sm:text-base md:text-[1.02rem] leading-[1.9] max-w-xl mx-auto lg:mx-0"
+              style={{ color: 'var(--text-secondary)', textAlign: 'justify' }}
+            >
+              Based in Nepal, I focus on full stack web apps, AI-powered products, and project work that combines strong engineering with practical machine learning.
+            </p>
 
             {/* Buttons */}
             <div
               data-aos="fade-up"
-              data-aos-delay="450"
+              data-aos-delay="500"
               className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center lg:justify-start"
             >
               <button
@@ -344,7 +346,7 @@ const Home = () => {
             {/* Social Links */}
             <div
               data-aos="fade-up"
-              data-aos-delay="550"
+              data-aos-delay="600"
               className="flex items-center gap-4 justify-center lg:justify-start"
             >
               {socialLinks.map((s) => {
