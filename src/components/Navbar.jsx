@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 // 1. IMPORT YOUR LOGO HERE
-import logo from './images/logo.png'; 
+import logo from './images/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
       window.requestAnimationFrame(() => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'about', 'services', 'skills', 'gallery', 'contact'];
+      const sections = ['home', 'about', 'services', 'skills', 'gallery', 'certificates', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -45,6 +45,7 @@ const Navbar = () => {
     { name: 'Services', path: '#services' },
     { name: 'Skills', path: '#skills' },
     { name: 'Work', path: '#gallery' },
+    { name: 'Certificates', path: '#certificates' },
     { name: 'Contact', path: '#contact' },
   ];
 
@@ -82,23 +83,23 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-[auto_1fr_auto] items-center h-16 md:h-[76px] gap-2 md:gap-4">
-          
+
           {/* LOGO SECTION */}
-          <a 
-            href="#home" 
-            onClick={(e) => handleNavClick(e, '#home')} 
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, '#home')}
             className="group justify-self-start flex items-center gap-2 md:gap-2.5 transition-transform hover:scale-[1.02]"
           >
-            <img 
-              src={logo} 
-              alt="Sushant Gautam" 
-              className="h-9 w-auto object-contain md:h-10" 
+            <img
+              src={logo}
+              alt="Sushant Gautam"
+              className="h-9 w-auto object-contain md:h-10"
             />
-            <span 
+            <span
               className="font-bold text-lg lg:text-[1.15rem] tracking-tight hidden sm:block"
               style={{ color: 'var(--text-primary)' }}
             >
-              Sushant 
+              Sushant
               <span className="ml-1.5" style={{ color: 'var(--accent-color)' }}>
                 Gautam
               </span>
@@ -164,7 +165,7 @@ const Navbar = () => {
             >
               {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
-            
+
             <button
               className="p-2 rounded-lg transition-colors"
               style={{
@@ -186,7 +187,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
         style={{
           background: 'var(--bg-primary)',

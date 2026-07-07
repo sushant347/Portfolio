@@ -164,7 +164,7 @@ const Home = () => {
     addBullet('Frontend: React.js, JavaScript, Tailwind CSS, HTML, CSS');
     addBullet('Backend: Django, REST APIs');
     addBullet('Database: PostgreSQL, MS SQL Server');
-    addBullet('AI and Data: Python, PyTorch, Scikit-learn, NLP');
+    addBullet('AI and Data: Python, PyTorch, NLP');
     addBullet('Tools: Git/GitHub, Agile Workflow, Problem Solving');
 
     addHeading('Featured Projects');
@@ -180,7 +180,7 @@ const Home = () => {
 
     addParagraph('Kharchi (Expense Tracker)', { weight: 'bold', color: [31, 41, 55] });
     addBullet('AI-powered expense tracker that classifies spending, predicts trends, and offers savings insights.');
-    addBullet('Stack: React, Django, Scikit-learn, NLP, PostgreSQL');
+    addBullet('Stack: React, Django, NLP, PostgreSQL');
     addLinkLine('GitHub', 'https://github.com/sushant347/Smart-Expense-Analyzer-with-ML-NLP-Django-React-');
 
     addParagraph('UrbanWave E-commerce', { weight: 'bold', color: [31, 41, 55] });
@@ -209,6 +209,21 @@ const Home = () => {
     addBullet('Classic snake game with collision logic, increasing difficulty, and high-score tracking.');
     addBullet('Stack: Python, Pygame');
     addLinkLine('GitHub', 'https://github.com/sushant347/Snake-Game');
+
+    addHeading('Certifications');
+    addParagraph('Generative AI Essentials: Using LLMs to Work with Data', {
+      weight: 'bold',
+      color: [31, 41, 55],
+    });
+    addBullet('Issued by IBM SkillsBuild | Jul 2026');
+    addLinkLine('Verify', 'https://www.credly.com/go/ZGp0xc54');
+
+    addParagraph('AI Practitioner: Ready to use AI', {
+      weight: 'bold',
+      color: [31, 41, 55],
+    });
+    addBullet('Issued by IBM SkillsBuild | Jul 2026 | Credential ID: PLAN-BA0D92BE45DD');
+    addLinkLine('Verify', 'https://www.sushantgautam347.com.np/certificates/ai-practitioner-ibm-skillsbuild.pdf');
 
     addHeading('Education');
     addParagraph('Himalaya Engineering College — Chyasal-07, Lalitpur', {

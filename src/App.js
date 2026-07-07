@@ -12,6 +12,7 @@ const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const Skills = lazy(() => import('./pages/Skills'));
 const Gallery = lazy(() => import('./pages/Gallery'));
+const Certificates = lazy(() => import('./pages/Certificates'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 function App() {
@@ -76,6 +77,9 @@ function App() {
           </Suspense>
           <Suspense fallback={<section className="section-shell" aria-hidden="true" />}>
             <Gallery />
+          </Suspense>
+          <Suspense fallback={<section className="section-shell" aria-hidden="true" />}>
+            <Certificates />
           </Suspense>
           <Suspense fallback={<section className="section-shell" aria-hidden="true" />}>
             <Contact />
