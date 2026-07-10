@@ -170,4 +170,27 @@ const Certificates = () => {
                   <a
                     href={cert.certificate}
                     target="_blank"
-                    rel=
+                    rel="noopener noreferrer"
+                    className={`relative z-10 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03] ${
+                      cert.verify ? 'flex-1' : 'w-full'
+                    }`}
+                    style={{
+                      background: 'var(--bg-tertiary)',
+                      color: 'var(--text-primary)',
+                      border: '1px solid var(--border-color)',
+                    }}
+                  >
+                    <FileText size={15} /> Certificate
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Certificates;
