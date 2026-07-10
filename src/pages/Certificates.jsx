@@ -2,9 +2,21 @@ import React from 'react';
 import { Award, BadgeCheck, FileText, Calendar } from 'lucide-react';
 import generativeAiCertImg from '../components/images/Generative AI Certificate.png';
 import aiPractitionerCertImg from '../components/images/AI Practitioner Certificate.png';
+import supervisedMlCertImg from '../components/images/Supervised ML Certificate.png';
 
 /* ─── Certificate Data ─── */
 const certificates = [
+  {
+    title: 'Supervised Machine Learning: Regression and Classification',
+    issuer: 'DeepLearning.AI · Stanford',
+    date: 'Jul 2026',
+    description:
+      'Stanford & DeepLearning.AI course taught by Andrew Ng, covering supervised learning fundamentals — building linear and logistic regression models, gradient descent, and applying regression and classification techniques with NumPy and scikit-learn.',
+    skills: ['Machine Learning', 'Regression', 'Classification', 'Gradient Descent', 'scikit-learn'],
+    verify: 'https://coursera.org/verify/UOFG0DWLETJ3',
+    certificate: '/certificates/supervised-ml-deeplearning-stanford.pdf',
+    image: supervisedMlCertImg,
+  },
   {
     title: 'Generative AI Essentials: Using LLMs to Work with Data',
     issuer: 'IBM SkillsBuild',
@@ -158,27 +170,4 @@ const Certificates = () => {
                   <a
                     href={cert.certificate}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className={`relative z-10 inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03] ${
-                      cert.verify ? 'flex-1' : 'w-full'
-                    }`}
-                    style={{
-                      background: 'var(--bg-tertiary)',
-                      color: 'var(--text-primary)',
-                      border: '1px solid var(--border-color)',
-                    }}
-                  >
-                    <FileText size={15} /> Certificate
-                  </a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-      </div>
-    </section>
-  );
-};
-
-export default Certificates;
+                    rel=
