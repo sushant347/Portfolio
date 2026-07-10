@@ -217,7 +217,12 @@ const Home = () => {
     });
     addBullet('Issued by IBM SkillsBuild | Jul 2026');
     addLinkLine('Verify', 'https://www.credly.com/go/ZGp0xc54');
-
+    addParagraph('Supervised Machine Learning: Regression and Classification', {
+      weight: 'bold',
+      color: [31, 41, 55],
+    });
+    addBullet('Issued by DeepLearning.AI · Stanford | Jul 2026');
+    addLinkLine('Verify', 'https://coursera.org/verify/UOFG0DWLETJ3');
     addParagraph('AI Practitioner: Ready to use AI', {
       weight: 'bold',
       color: [31, 41, 55],
