@@ -59,7 +59,7 @@ const Home = () => {
     const left = 16;
     const right = 16;
     const maxWidth = 210 - left - right;
-    const lineGap = 5;
+    const lineGap = 4.6;
     let y = 18;
 
     const ensureSpace = (requiredHeight = 10) => {
@@ -139,7 +139,7 @@ const Home = () => {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10.5);
     doc.setTextColor(75, 85, 99);
-    doc.text('Computer Engineering Student | Full Stack Developer', left, y);
+    doc.text('Computer Engineering Student | Full Stack Developer | AI/ML Engineer', left, y);
     y += 6;
     doc.text('Chyasal-07, Lalitpur, Nepal | +977 9869465432 | sushantgautam98677@gmail.com', left, y);
     y += 6;
@@ -154,80 +154,49 @@ const Home = () => {
 
     addHeading('Professional Summary');
     addParagraph(
-      'Motivated Computer Engineering student (6th semester) with strong foundations in full-stack web development and practical NLP/ML integration. Experienced in building end-to-end projects using React, Django, and PostgreSQL with focus on reliability, usability, and maintainable code.'
-    );
-    addParagraph(
-      'Seeking software engineering internship opportunities to contribute to real products, strengthen engineering depth, and solve meaningful technical challenges.'
+      'Computer Engineering student skilled in full-stack development and applied machine learning, building scalable apps with React, Django, PostgreSQL, and Python. Experienced in REST API design and NLP-based AI systems; seeking a Software Engineering or AI/ML internship.'
     );
 
     addHeading('Technical Skills');
-    addBullet('Frontend: React.js, JavaScript, Tailwind CSS, HTML, CSS');
-    addBullet('Backend: Django, REST APIs');
-    addBullet('Database: PostgreSQL, MS SQL Server');
-    addBullet('AI and Data: Python, PyTorch, NLP');
-    addBullet('Tools: Git/GitHub, Agile Workflow, Problem Solving');
+    addBullet('Programming Languages: Python, JavaScript (ES6+), SQL');
+    addBullet('Frontend: React.js, Tailwind CSS, HTML5, CSS3, Responsive UI Design');
+    addBullet('Backend: Django, Django REST Framework, RESTful API Development');
+    addBullet('Databases: PostgreSQL, MS SQL Server, Database Design');
+    addBullet('AI/ML: PyTorch, Scikit-learn, NLP, Model Evaluation, Recommendation Systems');
+    addBullet('Developer Tools: Git, GitHub, Agile Workflow, Postman');
+    addBullet('Core CS: Data Structures & Algorithms, OOP, Problem Solving');
 
     addHeading('Featured Projects');
-    addParagraph('CineMatch', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Movie recommendation system combining collaborative filtering, NLP-based similarity, and popularity ranking.');
-    addBullet('Stack: React, Django, PostgreSQL, NLP');
+    addParagraph('CineMatch — Movie Recommendation System', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('Built full-stack movie recommender (React, Django, PostgreSQL) using collaborative filtering + NLP.');
+    addBullet('Designed hybrid ranking pipeline and REST APIs to serve real-time, personalized recommendations.');
     addLinkLine('GitHub', 'https://github.com/sushant347/CineMatch');
 
-    addParagraph('Nepali News Summarizer', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('News dashboard that aggregates Nepali news, creates summaries, and analyzes sentiment with API support.');
-    addBullet('Stack: React, Django REST, PostgreSQL, NLP');
+    addParagraph('Nepali News Summarizer — AI-Powered News Aggregation Platform', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('Built full-stack news dashboard (React, Django REST, PostgreSQL) aggregating Nepali news articles.');
+    addBullet('Implemented NLP summarization and sentiment analysis to surface concise summaries and trends.');
     addLinkLine('GitHub', 'https://github.com/sushant347/Nepali-News-Summarizer');
 
-    addParagraph('Kharchi (Expense Tracker)', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('AI-powered expense tracker that classifies spending, predicts trends, and offers savings insights.');
-    addBullet('Stack: React, Django, NLP, PostgreSQL');
+    addParagraph('Kharchi — AI-Powered Expense Tracker', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('Developed full-stack finance app (React, Django, PostgreSQL) that auto-classifies transactions via NLP.');
+    addBullet('Designed predictive spending-trend model to generate personalized savings recommendations.');
     addLinkLine('GitHub', 'https://github.com/sushant347/Smart-Expense-Analyzer-with-ML-NLP-Django-React-');
 
-    addParagraph('UrbanWave E-commerce', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('E-commerce frontend with product listing, cart flow, and checkout simulation.');
-    addBullet('Stack: HTML, CSS, JavaScript');
-    addLinkLine('GitHub', 'https://github.com/sushant347/Html-CSS-First-Project');
-    addLinkLine('Live', 'https://sushant347.github.io/Html-CSS-First-Project/');
-
-    addParagraph('ElectroNest', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Electronics e-commerce platform with product listing, cart management, and checkout workflow.');
-    addBullet('Stack: React, Django, PostgreSQL, Tailwind CSS');
-    addLinkLine('GitHub', 'https://github.com/sushant347/ElectroNest');
-    addLinkLine('Live', 'https://electro-nest.vercel.app');
-
-    addParagraph('CineScope Intelligence', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('NLP application for movie review sentiment analysis with confidence scoring and aspect-level insights.');
-    addBullet('Stack: React, Django, PostgreSQL, NLP models');
-    addLinkLine('GitHub', 'https://github.com/sushant347/CineScope-Intelligence');
-
-    addParagraph('Space Invader Game', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Arcade-style shooter featuring wave progression, score tracking, and smooth controls.');
-    addBullet('Stack: Python, Pygame');
-    addLinkLine('GitHub', 'https://github.com/sushant347/Space-Invadar-Game');
-
-    addParagraph('Snake Game', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Classic snake game with collision logic, increasing difficulty, and high-score tracking.');
-    addBullet('Stack: Python, Pygame');
-    addLinkLine('GitHub', 'https://github.com/sushant347/Snake-Game');
-
     addHeading('Certifications');
-    addParagraph('Generative AI Essentials: Using LLMs to Work with Data', {
+    addParagraph('Supervised Machine Learning: Regression and Classification — DeepLearning.AI, Stanford (Jul 2026)', {
       weight: 'bold',
       color: [31, 41, 55],
     });
-    addBullet('Issued by IBM SkillsBuild | Jul 2026');
-    addLinkLine('Verify', 'https://www.credly.com/go/ZGp0xc54');
-    addParagraph('Supervised Machine Learning: Regression and Classification', {
-      weight: 'bold',
-      color: [31, 41, 55],
-    });
-    addBullet('Issued by DeepLearning.AI · Stanford | Jul 2026');
     addLinkLine('Verify', 'https://coursera.org/verify/UOFG0DWLETJ3');
-    addParagraph('AI Practitioner: Ready to use AI', {
+    addParagraph('Generative AI Essentials: Using LLMs to Work with Data — IBM SkillsBuild (Jul 2026)', {
       weight: 'bold',
       color: [31, 41, 55],
     });
-    addBullet('Issued by IBM SkillsBuild | Jul 2026 | Credential ID: PLAN-BA0D92BE45DD');
+    addLinkLine('Verify', 'https://www.credly.com/go/ZGp0xc54');
+    addParagraph('AI Practitioner: Ready to Use AI — IBM SkillsBuild (Jul 2026)', {
+      weight: 'bold',
+      color: [31, 41, 55],
+    });
     addLinkLine('Verify', 'https://www.sushantgautam347.com.np/certificates/ai-practitioner-ibm-skillsbuild.pdf');
 
     addHeading('Education');
@@ -235,11 +204,8 @@ const Home = () => {
       weight: 'bold',
       color: [31, 41, 55],
     });
-    addBullet('Bachelor in Computer Engineering | Currently in 6th Semester');
-    addBullet('Relevant Coursework: Data Structures, OOP, DBMS, Software Engineering');
-
-    addHeading('Languages');
-    addBullet('English, Nepali');
+    addBullet('B.E. in Computer Engineering | 6th Semester | Expected Graduation: 2027');
+    addBullet('Relevant Coursework: Data Structures & Algorithms, OOP, DBMS, Software Engineering');
 
     doc.save('Sushant_Gautam_CV.pdf');
   };
