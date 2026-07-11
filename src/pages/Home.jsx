@@ -167,21 +167,19 @@ const Home = () => {
     addBullet('Core CS: Data Structures & Algorithms, OOP, Problem Solving');
 
     addHeading('Featured Projects');
-    addParagraph('CineMatch — Movie Recommendation System', { weight: 'bold', color: [31, 41, 55] });
+    addParagraph('CineMatch : Movie Recommendation System', { weight: 'bold', color: [31, 41, 55] });
     addBullet('Built full-stack movie recommender (React, Django, PostgreSQL) using collaborative filtering + NLP.');
     addBullet('Designed hybrid ranking pipeline and REST APIs to serve real-time, personalized recommendations.');
     addLinkLine('GitHub', 'https://github.com/sushant347/CineMatch');
-
-    addParagraph('Nepali News Summarizer — AI-Powered News Aggregation Platform', { weight: 'bold', color: [31, 41, 55] });
+    addParagraph('electronest : e-commerce platform ', { weight: 'bold', color: [31, 41, 55] });
+    addBullet('Developed full-stack e-commerce platform and integrated Stripe for secure payment processing.');
+    addBullet('Implemented secure user authentication, product search, and order tracking features using React, Django REST, ML forecasting and PostgreSQL.');
+    addLinkLine('GitHub', 'https://github.com/sushant347/ElectroNest');
+    addLinkLine('Live Demo', 'https://electro-nest.vercel.app/');
+    addParagraph('Nepali News Summarizer : AI-Powered News Aggregation Platform', { weight: 'bold', color: [31, 41, 55] });
     addBullet('Built full-stack news dashboard (React, Django REST, PostgreSQL) aggregating Nepali news articles.');
     addBullet('Implemented NLP summarization and sentiment analysis to surface concise summaries and trends.');
     addLinkLine('GitHub', 'https://github.com/sushant347/Nepali-News-Summarizer');
-
-    addParagraph('Kharchi — AI-Powered Expense Tracker', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Developed full-stack finance app (React, Django, PostgreSQL) that auto-classifies transactions via NLP.');
-    addBullet('Designed predictive spending-trend model to generate personalized savings recommendations.');
-    addLinkLine('GitHub', 'https://github.com/sushant347/Smart-Expense-Analyzer-with-ML-NLP-Django-React-');
-
     addHeading('Certifications');
     addParagraph('Supervised Machine Learning: Regression and Classification — DeepLearning.AI, Stanford (Jul 2026)', {
       weight: 'bold',
@@ -193,11 +191,11 @@ const Home = () => {
       color: [31, 41, 55],
     });
     addLinkLine('Verify', 'https://www.credly.com/go/ZGp0xc54');
-    addParagraph('AI Practitioner: Ready to Use AI — IBM SkillsBuild (Jul 2026)', {
+    addParagraph('Supervised Machine Learning: Regression and Classification — DeepLearning.AI, Stanford (Jul 2026)', {
       weight: 'bold',
       color: [31, 41, 55],
     });
-    addLinkLine('Verify', 'https://www.sushantgautam347.com.np/certificates/ai-practitioner-ibm-skillsbuild.pdf');
+    addLinkLine('Verify', 'https://coursera.org/verify/UOFG0DWLETJ3');
 
     addHeading('Education');
     addParagraph('Himalaya Engineering College — Chyasal-07, Lalitpur', {
