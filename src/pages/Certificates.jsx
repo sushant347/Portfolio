@@ -3,9 +3,21 @@ import { Award, BadgeCheck, FileText, Calendar } from 'lucide-react';
 import generativeAiCertImg from '../components/images/Generative AI Certificate.png';
 import aiPractitionerCertImg from '../components/images/AI Practitioner Certificate.png';
 import supervisedMlCertImg from '../components/images/Supervised ML Certificate.png';
+import azureMlCertImg from '../components/images/Microsoft Azure ML Certificate.png';
 
 /* ─── Certificate Data ─── */
 const certificates = [
+  {
+    title: 'Create Machine Learning Models in Microsoft Azure',
+    issuer: 'Microsoft · Coursera',
+    date: 'Jul 2026',
+    description:
+      'Microsoft-authorized course on building and evaluating machine learning models in Azure — exploring and preparing data, training regression, classification, and clustering models, and applying deep learning fundamentals with Azure Machine Learning.',
+    skills: ['Microsoft Azure', 'Azure ML', 'Model Training', 'Deep Learning', 'Data Preparation'],
+    verify: 'https://coursera.org/verify/TVKJSA0LOQF7',
+    certificate: '/certificates/create-ml-models-azure-microsoft-coursera.pdf',
+    image: azureMlCertImg,
+  },
   {
     title: 'Supervised Machine Learning: Regression and Classification',
     issuer: 'DeepLearning.AI · Stanford',

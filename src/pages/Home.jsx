@@ -163,6 +163,7 @@ const Home = () => {
     addBullet('Backend: Django, Django REST Framework, RESTful API Development');
     addBullet('Databases: PostgreSQL, MS SQL Server, Database Design');
     addBullet('AI/ML: PyTorch, Scikit-learn, NLP, Model Evaluation, Recommendation Systems');
+    addBullet('Cloud & MLOps: Microsoft Azure, Azure Machine Learning, Model Training & Deployment');
     addBullet('Developer Tools: Git, GitHub, Agile Workflow, Postman');
     addBullet('Core CS: Data Structures & Algorithms, OOP, Problem Solving');
 
@@ -181,21 +182,26 @@ const Home = () => {
     addBullet('Implemented NLP summarization and sentiment analysis to surface concise summaries and trends.');
     addLinkLine('GitHub', 'https://github.com/sushant347/Nepali-News-Summarizer');
     addHeading('Certifications');
-    addParagraph('Supervised Machine Learning: Regression and Classification — DeepLearning.AI, Stanford (Jul 2026)', {
+    addParagraph('Create Machine Learning Models in Microsoft Azure — Microsoft (Coursera), Jul 2026', {
+      weight: 'bold',
+      color: [31, 41, 55],
+    });
+    addLinkLine('Verify', 'https://coursera.org/verify/TVKJSA0LOQF7');
+    addParagraph('Supervised Machine Learning: Regression and Classification — DeepLearning.AI & Stanford, Jul 2026', {
       weight: 'bold',
       color: [31, 41, 55],
     });
     addLinkLine('Verify', 'https://coursera.org/verify/UOFG0DWLETJ3');
-    addParagraph('Generative AI Essentials: Using LLMs to Work with Data — IBM SkillsBuild (Jul 2026)', {
+    addParagraph('Generative AI Essentials: Using LLMs to Work with Data — IBM SkillsBuild, Jul 2026', {
       weight: 'bold',
       color: [31, 41, 55],
     });
     addLinkLine('Verify', 'https://www.credly.com/go/ZGp0xc54');
-    addParagraph('Supervised Machine Learning: Regression and Classification — DeepLearning.AI, Stanford (Jul 2026)', {
+    addParagraph('AI Practitioner: Ready to use AI — IBM SkillsBuild, Jul 2026', {
       weight: 'bold',
       color: [31, 41, 55],
     });
-    addLinkLine('Verify', 'https://coursera.org/verify/UOFG0DWLETJ3');
+    addParagraph('Credential ID: PLAN-BA0D92BE45DD', { fontSize: 10, color: [107, 114, 128] });
 
     addHeading('Education');
     addParagraph('Himalaya Engineering College — Chyasal-07, Lalitpur', {

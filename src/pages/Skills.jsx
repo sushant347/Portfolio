@@ -41,7 +41,7 @@ const Skills = () => {
       title: 'AI & Data Science',
       icon: Brain,
       tone: 'ai',
-      items: ['Python', 'PyTorch', 'Scikit-learn', 'NLP', 'Model Evaluation'],
+      items: ['Python', 'PyTorch', 'Scikit-learn', 'NLP', 'Model Evaluation', 'Azure ML'],
     },
     {
       title: 'Tools & Workflow',
