@@ -245,7 +245,7 @@ const Home = () => {
       'Django, Django REST Framework',
       'RESTful API Design & Integration',
       'PostgreSQL, MS SQL Server',
-      'PyTorch, Scikit-learn, NLP',
+      'Scikit-learn, NLP',
       'Recommendation Systems, Model Evaluation',
       'Microsoft Azure, Azure Machine Learning',
       'Git, GitHub, Postman, Agile Workflow',
@@ -254,14 +254,21 @@ const Home = () => {
 
     addHeading('Projects');
 
-    addEntry('CineMatch — Movie Recommendation System', '2026');
+    addEntry('CIIS : Cybercrime Investigation Intelligence System', '2026');
+    addSubline('React · Django REST · PaddleOCR · Python');
+    addBullet('Built a four-engine forensic pipeline that converts screenshots, chat exports and receipts into an evidence-backed investigation report.');
+    addBullet('Implemented OCR and entity extraction, deterministic threat scoring, cross-case correlation, attack timelines and suspect ranking — every score justified and traceable to source evidence.');
+    addBullet('Designed engines as an acyclic dependency graph with failure isolation, backed by 590 unit tests across OCR, correlation, timeline and API layers.');
+    addLinks([{ label: 'GitHub', url: 'https://github.com/sushant347/Cybercrime-Investigation-Intelligence-System' }]);
+
+    addEntry('CineMatch : Movie Recommendation System', '2026');
     addSubline('React · Django REST · PostgreSQL · Scikit-learn');
     addBullet('Built a full-stack movie recommender combining collaborative filtering with NLP-based content similarity.');
     addBullet('Designed a hybrid ranking pipeline and REST APIs serving real-time, personalized recommendations.');
     addBullet('Modelled user–item interactions in PostgreSQL and evaluated ranking quality against baseline recommenders.');
     addLinks([{ label: 'GitHub', url: 'https://github.com/sushant347/CineMatch' }]);
 
-    addEntry('ElectroNest — Full Stack E-Commerce Platform', '2025 - 2026');
+    addEntry('ElectroNest : Full Stack E-Commerce Platform', '2025 - 2026');
     addSubline('React · Django REST · PostgreSQL · Stripe · ML Forecasting');
     addBullet('Developed an end-to-end e-commerce platform with product search, cart, and order tracking.');
     addBullet('Integrated Stripe for secure payment processing and implemented token-based user authentication.');
@@ -271,7 +278,7 @@ const Home = () => {
       { label: 'Live Demo', url: 'https://electro-nest.vercel.app/' },
     ]);
 
-    addEntry('Nepali News Summarizer — AI News Aggregation Platform', '2025');
+    addEntry('Nepali News Summarizer : AI News Aggregation Platform', '2025');
     addSubline('React · Django REST · PostgreSQL · NLP');
     addBullet('Built a news dashboard aggregating Nepali articles from multiple sources into a unified feed.');
     addBullet('Implemented NLP summarization and sentiment analysis to surface concise summaries and topic trends.');
@@ -285,10 +292,10 @@ const Home = () => {
     addBullet('Relevant coursework: Data Structures & Algorithms, OOP, DBMS, Software Engineering, Operating Systems.');
 
     addHeading('Certifications');
-    addBullet('Create Machine Learning Models in Microsoft Azure — Microsoft (Coursera), 2026');
-    addBullet('Supervised Machine Learning: Regression and Classification — DeepLearning.AI & Stanford, 2026');
-    addBullet('Generative AI Essentials: Using LLMs to Work with Data — IBM SkillsBuild, 2026');
-    addBullet('AI Practitioner: Ready to Use AI — IBM SkillsBuild, 2026 (ID: PLAN-BA0D92BE45DD)');
+    addBullet('Create Machine Learning Models in Microsoft Azure : Microsoft (Coursera), 2026');
+    addBullet('Supervised Machine Learning: Regression and Classification : DeepLearning.AI & Stanford, 2026');
+    addBullet('Generative AI Essentials: Using LLMs to Work with Data : IBM SkillsBuild, 2026');
+    addBullet('AI Practitioner: Ready to Use AI : IBM SkillsBuild, 2026 (ID: PLAN-BA0D92BE45DD)');
     addLinks([
       { label: 'Verify Azure ML', url: 'https://coursera.org/verify/TVKJSA0LOQF7' },
       { label: 'Verify Supervised ML', url: 'https://coursera.org/verify/UOFG0DWLETJ3' },

@@ -8,11 +8,23 @@ import cinescopeImg from '../components/images/cinescope.png';
 import cinematchImg from '../components/images/Cinematch.png';
 import nepaliNewsImg from '../components/images/Nepali News.png';
 import kharchiImg from '../components/images/Kharchi.png';
+import cybercrimeImg from '../components/images/Cybercrime.png';
 
 /* ─── Project Data ─── */
 const projects = [
   {
-    title: 'CineMatch',
+    title: 'CIIS : Cybercrime Investigation Intelligence System',
+    category: 'Cyber Forensics Platform',
+    tab: 'AI & ML',
+    description:
+      'Forensic platform that turns screenshots, chat exports, and receipts into an evidence-backed investigation report — OCR and entity extraction, threat scoring, relationship correlation, attack timelines, and suspect ranking. Every score is deterministic, justified in writing, and traceable back to its source evidence.',
+    tech: ['React', 'Django REST', 'PaddleOCR', 'Python', 'Graph Correlation'],
+    github: 'https://github.com/sushant347/Cybercrime-Investigation-Intelligence-System',
+    hideLiveDemo: true,
+    image: cybercrimeImg,
+  },
+  {
+    title: 'CineMatch : Movie Recommendation System',
     category: 'AI / Recommendation System',
     tab: 'AI & ML',
     description:
@@ -23,7 +35,7 @@ const projects = [
     image: cinematchImg,
   },
   {
-    title: 'ElectroNest',
+    title: 'ElectroNest : Full Stack E-Commerce Platform',
     category: 'Full Stack Web App',
     tab: 'Web Apps',
     description:
@@ -34,7 +46,7 @@ const projects = [
     image: electronestImg,
   },
   {
-    title: 'CineScope Intelligence',
+    title: 'CineScope Intelligence : AI / NLP Web App',
     category: 'AI / NLP Web App',
     tab: 'AI & ML',
     description:
@@ -45,7 +57,7 @@ const projects = [
     image: cinescopeImg,
   },
   {
-    title: 'Nepali News Summarizer',
+    title: 'Nepali News Summarizer : AI News Aggregation Platform',
     category: 'AI / NLP Dashboard',
     tab: 'AI & ML',
     description:
@@ -56,7 +68,7 @@ const projects = [
     image: nepaliNewsImg,
   },
   {
-    title: 'Kharchi',
+    title: 'Kharchi : AI / FinTech Web App',
     category: 'AI / FinTech Web App',
     tab: 'AI & ML',
     description:
@@ -67,7 +79,7 @@ const projects = [
     image: kharchiImg,
   },
   {
-    title: 'UrbanWave E-commerce',
+    title: 'UrbanWave E-commerce : Frontend Web Project',
     category: 'Frontend Web Project',
     tab: 'Web Apps',
     description:
