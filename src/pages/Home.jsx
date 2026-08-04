@@ -135,7 +135,12 @@ const Home = () => {
     };
 
     /* ── Section heading with rule ── */
+    /* blank line between the end of one section and the next heading */
+    const SECTION_GAP = 5;
+    let isFirstHeading = true;
     const addHeading = (title, minContent = 14) => {
+      if (!isFirstHeading) y += SECTION_GAP;
+      isFirstHeading = false;
       ensureSpace(10 + minContent);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(13.5);
