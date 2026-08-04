@@ -104,14 +104,32 @@ const Home = () => {
       setFill(NAVY);
       doc.rect(0, 28.5, PAGE_W, 8, 'F');
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(8.6);
+      doc.setFontSize(8.4);
       doc.setTextColor(255, 255, 255);
-      doc.text(
-        'Lalitpur, Nepal  |  +977 9869465432  |  sushantgautam98677@gmail.com  |  github.com/sushant347  |  sushantgautam347.com.np',
-        LEFT,
-        34
-      );
-      doc.link(LEFT, 30, PAGE_W - LEFT * 2, 6, { url: 'https://github.com/sushant347' });
+      /* each contact item gets its own link area, so email opens the mail
+         client, the site opens the site, and only GitHub opens GitHub */
+      const contacts = [
+        { text: 'Lalitpur, Nepal' },
+        { text: '+977 9869465432', url: 'tel:+9779869465432' },
+        { text: 'sushantgautam98677@gmail.com', url: 'mailto:sushantgautam98677@gmail.com' },
+        { text: 'github.com/sushant347', url: 'https://github.com/sushant347' },
+        { text: 'sushantgautam347.com.np', url: 'https://www.sushantgautam347.com.np/' },
+      ];
+      const SEPARATOR = '  |  ';
+      const separatorW = doc.getTextWidth(SEPARATOR);
+      let cx = LEFT;
+      contacts.forEach((contact, i) => {
+        const w = doc.getTextWidth(contact.text);
+        doc.text(contact.text, cx, 34);
+        if (contact.url) {
+          doc.link(cx, 30.4, w, 5, { url: contact.url });
+        }
+        cx += w;
+        if (i < contacts.length - 1) {
+          doc.text(SEPARATOR, cx, 34);
+          cx += separatorW;
+        }
+      });
 
       y = 43.5;
     };
