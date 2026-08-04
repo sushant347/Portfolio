@@ -55,161 +55,245 @@ const Home = () => {
   const handleDownloadCV = async () => {
     const { jsPDF } = await import('jspdf');
     const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-    const pageHeight = 297;
-    const left = 16;
-    const right = 16;
-    const maxWidth = 210 - left - right;
-    const lineGap = 4.6;
-    let y = 18;
 
-    const ensureSpace = (requiredHeight = 10) => {
-      if (y + requiredHeight > pageHeight - 16) {
+    /* ── Layout constants ── */
+    const PAGE_W = 210;
+    const PAGE_H = 297;
+    const LEFT = 14;
+    const RIGHT = 14;
+    const CONTENT_W = PAGE_W - LEFT - RIGHT;
+    const LINE = 4.2;
+
+    /* ── Palette (matches reference template) ── */
+    const NAVY = [38, 44, 56];
+    const ACCENT = [166, 40, 74];
+    const HEADING = [26, 26, 30];
+    const BODY = [60, 62, 68];
+    const MUTED = [110, 114, 122];
+    const RULE = [190, 194, 200];
+
+    let y = 0;
+
+    const setFill = (c) => doc.setFillColor(c[0], c[1], c[2]);
+    const setText = (c) => doc.setTextColor(c[0], c[1], c[2]);
+    const setDraw = (c) => doc.setDrawColor(c[0], c[1], c[2]);
+
+    const ensureSpace = (needed = 10) => {
+      if (y + needed > PAGE_H - 14) {
         doc.addPage();
         y = 18;
       }
     };
 
-    const addHeading = (title, minContentHeight = 14) => {
-      ensureSpace(10 + minContentHeight);
+    /* ── Header band ── */
+    const addHeader = () => {
+      setFill(NAVY);
+      doc.rect(0, 0, PAGE_W, 26, 'F');
+
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(13);
-      doc.setTextColor(24, 24, 27);
-      doc.text(title, left, y);
-      y += 2;
-      doc.setDrawColor(59, 130, 246);
-      doc.setLineWidth(0.4);
-      doc.line(left, y, 210 - right, y);
-      y += 6;
+      doc.setFontSize(25);
+      const first = 'SUSHANT';
+      const last = ' GAUTAM';
+      doc.setTextColor(255, 255, 255);
+      doc.text(first, LEFT, 17.5);
+      const firstW = doc.getTextWidth(first);
+      setText(ACCENT);
+      doc.text(last, LEFT + firstW, 17.5);
+
+      /* contact strip */
+      setFill(NAVY);
+      doc.rect(0, 28.5, PAGE_W, 8, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.6);
+      doc.setTextColor(255, 255, 255);
+      doc.text(
+        'Lalitpur, Nepal  |  +977 9869465432  |  sushantgautam98677@gmail.com  |  github.com/sushant347  |  sushantgautam347.com.np',
+        LEFT,
+        34
+      );
+      doc.link(LEFT, 30, PAGE_W - LEFT * 2, 6, { url: 'https://github.com/sushant347' });
+
+      y = 43.5;
     };
 
-    const addParagraph = (text, options = {}) => {
-      const fontSize = options.fontSize || 10.5;
-      const weight = options.weight || 'normal';
-      const color = options.color || [55, 65, 81];
-      doc.setFont('helvetica', weight);
-      doc.setFontSize(fontSize);
-      doc.setTextColor(color[0], color[1], color[2]);
-      const lines = doc.splitTextToSize(text, maxWidth);
-      ensureSpace(lines.length * lineGap + 2);
-      doc.text(lines, left, y);
-      y += lines.length * lineGap + 2;
-    };
-
-    const addBullet = (text, options = {}) => {
-      const bulletOffset = 4;
-      const color = options.color || [55, 65, 81];
-      const underline = options.underline || false;
-      const weight = options.weight || 'normal';
-      doc.setFont('helvetica', weight);
-      doc.setFontSize(10.5);
-      doc.setTextColor(color[0], color[1], color[2]);
-      const lines = doc.splitTextToSize(text, maxWidth - bulletOffset);
-      ensureSpace(lines.length * lineGap + 1);
-      doc.text('-', left, y);
-      const startY = y;
-      doc.text(lines, left + bulletOffset, y);
-      if (underline) {
-        lines.forEach((line, index) => {
-          const lineWidth = doc.getTextWidth(line);
-          const lineY = startY + index * lineGap;
-          doc.setDrawColor(color[0], color[1], color[2]);
-          doc.setLineWidth(0.2);
-          doc.line(left + bulletOffset, lineY + 0.8, left + bulletOffset + lineWidth, lineY + 0.8);
-        });
-      }
-      y += lines.length * lineGap + 1;
-    };
-
-    const addLinkLine = (label, url) => {
-      const text = `${label}: ${url}`;
+    /* ── Section heading with rule ── */
+    const addHeading = (title, minContent = 14) => {
+      ensureSpace(10 + minContent);
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(10.5);
-      doc.setTextColor(37, 99, 235);
-      ensureSpace(lineGap + 2);
-      doc.textWithLink(text, left, y, { url });
-      y += lineGap + 1;
+      doc.setFontSize(13.5);
+      setText(HEADING);
+      doc.text(title, LEFT, y);
+      y += 1.8;
+      setDraw(RULE);
+      doc.setLineWidth(0.3);
+      doc.line(LEFT, y, PAGE_W - RIGHT, y);
+      y += 5.4;
     };
 
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(24);
-    doc.setTextColor(17, 24, 39);
-    doc.text('Sushant Gautam', left, y);
-    y += 8;
+    const addParagraph = (text, opts = {}) => {
+      const size = opts.size || 9.6;
+      const weight = opts.weight || 'normal';
+      const color = opts.color || BODY;
+      doc.setFont('helvetica', weight);
+      doc.setFontSize(size);
+      setText(color);
+      const lines = doc.splitTextToSize(text, CONTENT_W);
+      ensureSpace(lines.length * LINE + 2);
+      doc.text(lines, LEFT, y);
+      y += lines.length * LINE + 2;
+    };
+
+    /* ── Entry title (left) + date (right), like the job rows ── */
+    const addEntry = (title, date) => {
+      ensureSpace(12);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      setText(HEADING);
+      doc.text(title, LEFT, y);
+      if (date) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        setText(BODY);
+        doc.text(date, PAGE_W - RIGHT, y, { align: 'right' });
+      }
+      y += 4.4;
+    };
+
+    /* ── Sub-line under an entry (org / stack) ── */
+    const addSubline = (text) => {
+      ensureSpace(8);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9.2);
+      setText(BODY);
+      doc.text(text, LEFT, y);
+      y += 4.6;
+    };
+
+    const addBullet = (text, opts = {}) => {
+      const indent = 4.4;
+      const color = opts.color || BODY;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.4);
+      setText(color);
+      const lines = doc.splitTextToSize(text, CONTENT_W - indent);
+      ensureSpace(lines.length * LINE + 1.2);
+      setFill(color);
+      doc.circle(LEFT + 1.3, y - 1.1, 0.55, 'F');
+      doc.text(lines, LEFT + indent, y);
+      y += lines.length * LINE + 1.2;
+    };
+
+    /* ── Two-column bullet grid (skills) ── */
+    const addBulletColumns = (items) => {
+      const colGap = 8;
+      const colW = (CONTENT_W - colGap) / 2;
+      const half = Math.ceil(items.length / 2);
+      const cols = [items.slice(0, half), items.slice(half)];
+      const rows = Math.max(cols[0].length, cols[1].length);
+      ensureSpace(rows * 5.2 + 2);
+      const startY = y;
+      cols.forEach((col, ci) => {
+        const x = LEFT + ci * (colW + colGap);
+        let cy = startY;
+        col.forEach((item) => {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9.4);
+          setText(BODY);
+          const lines = doc.splitTextToSize(item, colW - 4.4);
+          setFill(BODY);
+          doc.circle(x + 1.3, cy - 1.1, 0.55, 'F');
+          doc.text(lines, x + 4.4, cy);
+          cy += lines.length * LINE + 1.2;
+        });
+        y = Math.max(y, cy);
+      });
+      y += 1.5;
+    };
+
+    const addLinks = (links) => {
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.8);
+      ensureSpace(LINE + 2);
+      let x = LEFT + 4.4;
+      links.forEach(({ label, url }, i) => {
+        setText(ACCENT);
+        const text = i === links.length - 1 ? label : `${label}   •   `;
+        doc.textWithLink(text, x, y, { url });
+        x += doc.getTextWidth(text);
+      });
+      y += LINE + 1.5;
+    };
+
+    /* ══════════ CONTENT ══════════ */
+    addHeader();
 
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(10.5);
-    doc.setTextColor(75, 85, 99);
-    doc.text('Computer Engineering Student | Full Stack Developer | AI/ML Engineer', left, y);
-    y += 6;
-    doc.text('Chyasal-07, Lalitpur, Nepal | +977 9869465432 | sushantgautam98677@gmail.com', left, y);
-    y += 6;
-    doc.textWithLink('GitHub: https://github.com/sushant347', left, y, {
-      url: 'https://github.com/sushant347',
-    });
-    y += 5;
-    doc.textWithLink('Portfolio: https://www.sushantgautam347.com.np', left, y, {
-      url: 'https://www.sushantgautam347.com.np/',
-    });
-    y += 8;
+    doc.setFontSize(10);
+    setText(ACCENT);
+    doc.text('Full Stack Developer  |  AI / ML Engineer  |  Computer Engineering Student', LEFT, y);
+    y += 9;
 
     addHeading('Professional Summary');
     addParagraph(
-      'Computer Engineering student skilled in full-stack development and applied machine learning, building scalable apps with React, Django, PostgreSQL, and Python. Experienced in REST API design and NLP-based AI systems; seeking a Software Engineering or AI/ML internship.'
+      'Computer Engineering student with hands-on experience building production-style full-stack applications and applied machine learning systems. Skilled in React, Django REST Framework, PostgreSQL, and Python, with practical work in NLP, recommendation engines, and cloud-based model training on Microsoft Azure. Strong foundation in data structures, API design, and clean, maintainable architecture. Seeking a Software Engineering or AI/ML internship where I can ship real features and grow fast.'
     );
 
     addHeading('Technical Skills');
-    addBullet('Programming Languages: Python, JavaScript (ES6+), SQL');
-    addBullet('Frontend: React.js, Tailwind CSS, HTML5, CSS3, Responsive UI Design');
-    addBullet('Backend: Django, Django REST Framework, RESTful API Development');
-    addBullet('Databases: PostgreSQL, MS SQL Server, Database Design');
-    addBullet('AI/ML: PyTorch, Scikit-learn, NLP, Model Evaluation, Recommendation Systems');
-    addBullet('Cloud & MLOps: Microsoft Azure, Azure Machine Learning, Model Training & Deployment');
-    addBullet('Developer Tools: Git, GitHub, Agile Workflow, Postman');
-    addBullet('Core CS: Data Structures & Algorithms, OOP, Problem Solving');
+    addBulletColumns([
+      'Python, JavaScript (ES6+), SQL',
+      'React.js, Tailwind CSS, HTML5, CSS3',
+      'Django, Django REST Framework',
+      'RESTful API Design & Integration',
+      'PostgreSQL, MS SQL Server',
+      'PyTorch, Scikit-learn, NLP',
+      'Recommendation Systems, Model Evaluation',
+      'Microsoft Azure, Azure Machine Learning',
+      'Git, GitHub, Postman, Agile Workflow',
+      'Data Structures & Algorithms, OOP',
+    ]);
 
-    addHeading('Featured Projects');
-    addParagraph('CineMatch : Movie Recommendation System', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Built full-stack movie recommender (React, Django, PostgreSQL) using collaborative filtering + NLP.');
-    addBullet('Designed hybrid ranking pipeline and REST APIs to serve real-time, personalized recommendations.');
-    addLinkLine('GitHub', 'https://github.com/sushant347/CineMatch');
-    addParagraph('electronest : e-commerce platform ', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Developed full-stack e-commerce platform and integrated Stripe for secure payment processing.');
-    addBullet('Implemented secure user authentication, product search, and order tracking features using React, Django REST, ML forecasting and PostgreSQL.');
-    addLinkLine('GitHub', 'https://github.com/sushant347/ElectroNest');
-    addLinkLine('Live Demo', 'https://electro-nest.vercel.app/');
-    addParagraph('Nepali News Summarizer : AI-Powered News Aggregation Platform', { weight: 'bold', color: [31, 41, 55] });
-    addBullet('Built full-stack news dashboard (React, Django REST, PostgreSQL) aggregating Nepali news articles.');
-    addBullet('Implemented NLP summarization and sentiment analysis to surface concise summaries and trends.');
-    addLinkLine('GitHub', 'https://github.com/sushant347/Nepali-News-Summarizer');
-    addHeading('Certifications');
-    addParagraph('Create Machine Learning Models in Microsoft Azure — Microsoft (Coursera), Jul 2026', {
-      weight: 'bold',
-      color: [31, 41, 55],
-    });
-    addLinkLine('Verify', 'https://coursera.org/verify/TVKJSA0LOQF7');
-    addParagraph('Supervised Machine Learning: Regression and Classification — DeepLearning.AI & Stanford, Jul 2026', {
-      weight: 'bold',
-      color: [31, 41, 55],
-    });
-    addLinkLine('Verify', 'https://coursera.org/verify/UOFG0DWLETJ3');
-    addParagraph('Generative AI Essentials: Using LLMs to Work with Data — IBM SkillsBuild, Jul 2026', {
-      weight: 'bold',
-      color: [31, 41, 55],
-    });
-    addLinkLine('Verify', 'https://www.credly.com/go/ZGp0xc54');
-    addParagraph('AI Practitioner: Ready to use AI — IBM SkillsBuild, Jul 2026', {
-      weight: 'bold',
-      color: [31, 41, 55],
-    });
-    addParagraph('Credential ID: PLAN-BA0D92BE45DD', { fontSize: 10, color: [107, 114, 128] });
+    addHeading('Projects');
+
+    addEntry('CineMatch — Movie Recommendation System', '2026');
+    addSubline('React · Django REST · PostgreSQL · Scikit-learn');
+    addBullet('Built a full-stack movie recommender combining collaborative filtering with NLP-based content similarity.');
+    addBullet('Designed a hybrid ranking pipeline and REST APIs serving real-time, personalized recommendations.');
+    addBullet('Modelled user–item interactions in PostgreSQL and evaluated ranking quality against baseline recommenders.');
+    addLinks([{ label: 'GitHub', url: 'https://github.com/sushant347/CineMatch' }]);
+
+    addEntry('ElectroNest — Full Stack E-Commerce Platform', '2025 - 2026');
+    addSubline('React · Django REST · PostgreSQL · Stripe · ML Forecasting');
+    addBullet('Developed an end-to-end e-commerce platform with product search, cart, and order tracking.');
+    addBullet('Integrated Stripe for secure payment processing and implemented token-based user authentication.');
+    addBullet('Added ML-driven demand forecasting to support inventory and product-ranking decisions.');
+    addLinks([
+      { label: 'GitHub', url: 'https://github.com/sushant347/ElectroNest' },
+      { label: 'Live Demo', url: 'https://electro-nest.vercel.app/' },
+    ]);
+
+    addEntry('Nepali News Summarizer — AI News Aggregation Platform', '2025');
+    addSubline('React · Django REST · PostgreSQL · NLP');
+    addBullet('Built a news dashboard aggregating Nepali articles from multiple sources into a unified feed.');
+    addBullet('Implemented NLP summarization and sentiment analysis to surface concise summaries and topic trends.');
+    addBullet('Optimised ingestion and query performance to keep the dashboard responsive at scale.');
+    addLinks([{ label: 'GitHub', url: 'https://github.com/sushant347/Nepali-News-Summarizer' }]);
 
     addHeading('Education');
-    addParagraph('Himalaya Engineering College — Chyasal-07, Lalitpur', {
-      weight: 'bold',
-      color: [31, 41, 55],
-    });
-    addBullet('B.E. in Computer Engineering | 6th Semester | Expected Graduation: 2027');
-    addBullet('Relevant Coursework: Data Structures & Algorithms, OOP, DBMS, Software Engineering');
+    addEntry('B.E. in Computer Engineering', '2023 - 2027 (Expected)');
+    addSubline('Himalaya Engineering College — Chyasal-07, Lalitpur, Nepal');
+    addBullet('Currently in 6th Semester.');
+    addBullet('Relevant coursework: Data Structures & Algorithms, OOP, DBMS, Software Engineering, Operating Systems.');
+
+    addHeading('Certifications');
+    addBullet('Create Machine Learning Models in Microsoft Azure — Microsoft (Coursera), 2026');
+    addBullet('Supervised Machine Learning: Regression and Classification — DeepLearning.AI & Stanford, 2026');
+    addBullet('Generative AI Essentials: Using LLMs to Work with Data — IBM SkillsBuild, 2026');
+    addBullet('AI Practitioner: Ready to Use AI — IBM SkillsBuild, 2026 (ID: PLAN-BA0D92BE45DD)');
+    addLinks([
+      { label: 'Verify Azure ML', url: 'https://coursera.org/verify/TVKJSA0LOQF7' },
+      { label: 'Verify Supervised ML', url: 'https://coursera.org/verify/UOFG0DWLETJ3' },
+      { label: 'Verify IBM', url: 'https://www.credly.com/go/ZGp0xc54' },
+    ]);
 
     doc.save('Sushant_Gautam_CV.pdf');
   };
