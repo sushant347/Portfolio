@@ -130,7 +130,6 @@ const Home = () => {
           cx += separatorW;
         }
       });
-
       y = 43.5;
     };
 
@@ -324,6 +323,7 @@ const Home = () => {
       { label: 'Verify Supervised ML', url: 'https://coursera.org/verify/UOFG0DWLETJ3' },
       { label: 'Verify IBM', url: 'https://www.credly.com/go/ZGp0xc54' },
     ]);
+
 
     doc.save('Sushant_Gautam_CV.pdf');
   };
