@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 // 1. IMPORT YOUR LOGO HERE
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const navigationFrameRef = useRef(null);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -36,7 +37,12 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (navigationFrameRef.current) {
+        window.cancelAnimationFrame(navigationFrameRef.current);
+      }
+    };
   }, []);
 
   const navLinks = [
@@ -53,17 +59,31 @@ const Navbar = () => {
     e.preventDefault();
     setIsMenuOpen(false);
     const sectionId = path.substring(1);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+    let attempts = 0;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+    const scrollToSection = () => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        navigationFrameRef.current = null;
+        return;
+      }
+
+      if (attempts < 120) {
+        attempts += 1;
+        navigationFrameRef.current = window.requestAnimationFrame(scrollToSection);
+      } else {
+        navigationFrameRef.current = null;
+      }
+    };
+
+    if (navigationFrameRef.current) {
+      window.cancelAnimationFrame(navigationFrameRef.current);
     }
+    scrollToSection();
   };
 
   const isActive = (path) => activeSection === path.substring(1);

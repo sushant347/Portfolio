@@ -98,8 +98,7 @@ p {
 
 .section-shell {
   min-height: 40vh;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 560px;
+  scroll-margin-top: 80px;
 }
 
 .certificate-carousel {
